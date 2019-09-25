@@ -1,6 +1,6 @@
 {
-  "name": "Food Ninja",
-  "short_name": "FoodNinja",
+  "name": "SIMPELKES RSUD Kab. Lombok Utara",
+  "short_name": "SIMPELKES",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#FFE9D2",
@@ -8,42 +8,32 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/img/icons/icon-72x72.png",
+      "src": "/img/icons/hdpi.png",
       "type": "image/png",
       "sizes": "72x72"
     },
     {
-      "src": "/img/icons/icon-96x96.png",
+      "src": "/img/icons/mdpi.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/img/icons/xhdpi.png",
       "type": "image/png",
       "sizes": "96x96"
     },
     {
-      "src": "/img/icons/icon-128x128.png",
-      "type": "image/png",
-      "sizes": "128x128"
-    },
-    {
-      "src": "/img/icons/icon-144x144.png",
+      "src": "/img/icons/xxhdpi.png",
       "type": "image/png",
       "sizes": "144x144"
     },
     {
-      "src": "/img/icons/icon-152x152.png",
-      "type": "image/png",
-      "sizes": "152x152"
-    },
-    {
-      "src": "/img/icons/icon-192x192.png",
+      "src": "/img/icons/xxxhdpi.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/img/icons/icon-384x384.png",
-      "type": "image/png",
-      "sizes": "384x384"
-    },
-    {
-      "src": "/img/icons/icon-512x512.png",
+      "src": "/img/icons/hi_res_512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
