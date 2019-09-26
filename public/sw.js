@@ -11,7 +11,11 @@ const assets = [
   '/img/dish.png',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
   'https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
-  '/pages/fallback.html'
+  '/pages/fallback.html',
+  '/pages/login.html'
+
+  //'https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js',
+  //'https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js'
 ];
 
 // cache size limit function
