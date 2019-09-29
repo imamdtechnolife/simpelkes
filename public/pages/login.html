@@ -13,6 +13,8 @@
   <link rel="apple-touch-icon" href="/img/icons/icon-96x96.png">
   <meta name="apple-mobile-web-app-status-bar" content="#FFE1C4">
   <meta name="theme-color" content="#FFE1C4">
+  <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-auth.js"></script>
 </head>
 <body class="grey lighten-4">     
 
@@ -43,30 +45,65 @@
     <input id="txtEmail" type="text" placeholder="Email">
     <input id="txtPassword" type="password" placeholder="Password">
     <a class="waves-effect waves-light btn-small center" id="btnLogin" onclick="click">Login</a>
-    <a class="waves-effect waves-light btn-small center" id="btnLogout">Logout</a>
+    <a class="waves-effect waves-light btn-small center" id="btnLogout" onclick="click">Logout</a>
   </div>
   <script>
-
-    const txtEmail = document.getElementById('txtEmail')
-    const txtPassword = document.getElementById('txtPassword')
-    const btnLogin = document.getElementById('btnLogin')
-    const btnLogout = document.getElementById('btnLogout')
+    var config = {
+    apiKey: "AIzaSyAIinBMPLz4OCkJbyVDknAigbpGAH3j-fw",
+    authDomain: "simpelkes-rsud-klu.firebaseapp.com",
+    databaseURL: "https://simpelkes-rsud-klu.firebaseio.com",
+    projectId: "simpelkes-rsud-klu",
+    storageBucket: "simpelkes-rsud-klu.appspot.com",
+    messagingSenderId: "470427701009",
+    appId: "1:470427701009:web:a0d8f2b1e5ceace65406b0"
+    };
+    
+    firebase.initializeApp(config);
+    
+    
+    const txtEmail = document.getElementById('txtEmail');
+    const txtPassword = document.getElementById('txtPassword');
+    const btnLogin = document.getElementById('btnLogin');
+    const btnLogout = document.getElementById('btnLogout');
 
     btnLogin.addEventListener('click', e => {
       //get email and password
-      const email = txtEmail.value
-      const pass = txtPassword.value
+      const email = txtEmail.value;
+      const pass = txtPassword.value;
+      const auth = firebase.auth();
       
       //sign in
-      firebase.auth().signInWithEmailAndPassword(email, password)
+      const promise = auth.signInWithEmailAndPassword(email, pass);
+      promise.catch(e =>{console.log(e.message)});
+      
+       
+    }); 
+    
+    btnLogout.addEventListener('click', e => {
+      //get email and password
+      const email = txtEmail.value;
+      const pass = txtPassword.value;
+      
+      //sign in
+      firebase.auth().signUpWithEmailAndPassword(email, pass)
         .catch(function(error) {
         // Handle Errors here.
-        console.log(error.message)
+        console.log(error.message);
       });
-    });   
-       
+    });
+    
+      firebase.auth().onAuthStateChanged(firebaseUser => {
+        if(firebaseUser){
+          console.log(firebaseUser);
+        } else {
+          console.log('not logged in');
+        }
+    });
+
+    
+  
   </script>
-  <script src="/js/app.js"></script>
+  <!-- <script src="/js/app.js"></script> -->
   <script src="/js/ui.js"></script>
 </body>
 </html>
