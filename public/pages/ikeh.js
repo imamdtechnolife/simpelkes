@@ -119,3 +119,13 @@
 //     default:
 //         console.log("you got nothing!")
 // }
+
+//variable and block scope
+// let ikeh = 30
+
+// if(ikeh === 30){
+//     let ikeh = 40
+//     console.log("inside block : ", ikeh)
+// }
+
+// console.log("outside block : ", ikeh)
