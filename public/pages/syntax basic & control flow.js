@@ -129,3 +129,10 @@
 // }
 
 // console.log("outside block : ", ikeh)
+
+const score = [1,2,3]
+
+for(let i = 0; i < score.length; i++){
+    console.log(i)
+};
+

@@ -37,6 +37,7 @@ form.addEventListener('submit', evt => {
 
   form.title.value = '';
   form.ingredients.value = '';
+  
 });
 
 // remove a recipe
