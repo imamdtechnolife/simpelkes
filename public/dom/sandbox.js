@@ -19,3 +19,10 @@ yonkou.forEach(element => {
     kaidou.innerHTML += `<p>${element}</p>`;
 })
 
+const bigmom = document.querySelector('.kaidou');
+
+// bigmom.setAttribute('style', 'color: green;');
+console.log(bigmom.style);
+
+bigmom.style.color = "pink";
+
