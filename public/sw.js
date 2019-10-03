@@ -12,7 +12,9 @@ const assets = [
   'https://fonts.googleapis.com/icon?family=Material+Icons',
   'https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
   '/pages/fallback.html',
-  '/pages/login.html'
+  '/pages/login.html',
+  '/pages/index.html',
+  '/pages/sandbox.js'
 
   //'https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js',
   //'https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js'
