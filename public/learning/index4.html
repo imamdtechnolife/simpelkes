@@ -1,0 +1,187 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <title>Learning</title>
+</head>
+<body>
+    <style>
+        .container {
+            width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            
+            min-height: 50px;
+            background: burlywood;
+            text-align: center;
+            
+        }   
+        .content {
+            
+            min-height: 500px;
+            background: burlywood;
+            overflow: auto
+            
+        } 
+        .footer {
+            
+            min-height: 50px;
+            background: darkslategray;
+            padding: 20px;
+            text-align: center;
+            
+            
+        }
+
+        .footer h3 {
+            color: white
+        }
+
+        .logo img {
+            width: 200px;
+        }
+        .menu ul {
+            padding: 0;
+        }
+        .menu ul li {
+            display: inline-block;
+            position: relative;
+        }
+        .menu ul li a {
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        .thumbnail {
+            background: white;
+            padding: 10px;
+            text-align: center;
+            width: 225px;
+            margin: 10px;
+            float: left;
+        }
+
+        .thumbnail img {
+            width: 100%
+        }
+        ul.submenu{
+            float: left;
+            background: coral;
+            text-align: left;
+            border: 1px solid black;
+            position: absolute;
+            top: 20px;
+            left: 0;
+            display: none;
+        }
+            
+        ul.submenu li {
+            display: block;
+            
+        }
+
+        ul.submenu li a{
+            display: block;
+            padding: 5px 10px;
+        }
+
+        .menu ul li:hover ul.submenu {
+            display: block;
+        }
+
+        .overlay {
+            text-align: center;
+            background: black;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            opacity: 0.4;
+        }
+
+        .jumbotron {
+            background-size: cover;
+            background-image: url();
+            position: relative;
+            padding: 80px 40px;
+            color: white;
+            background: #aaa;
+            box-sizing: border-box;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .jumbotron h1, .jumbotron p {
+            position: relative;
+        }
+
+    </style>
+    <div class="container">
+        <div class="header">
+            <h1>Header</h1>
+            <div class="logo">
+                    <img src="/learning/img/GoPrint.png" alt="">
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Gallery</a>
+                        <ul class="submenu">
+                            <li>dragon</li>
+                            <li>kaidou</li>
+                            <li>rocks</li>                            
+                        </ul>
+                    </li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="jumbotron">
+                <div class="overlay">
+                    <h1>One Piece Grand Battle 2</h1>
+                    <p>sdjflkajdjfalkjsldkfjalkjfdlkajlfkjdsalkfjlkasjdfkl</p>
+                </div>
+            </div>
+        <div class="content">
+            <h1>Content</h1>
+            <div class="thumbnail">
+                <img src="http://via.placeholder.com/250x150" alt="">
+                <h1>Product 1</h1>
+                <p>Rp. 250.000</p>
+            </div>
+            <div class="thumbnail">
+                <img src="http://via.placeholder.com/250x150" alt="">
+                <h1>Product 1</h1>
+                <p>Rp. 250.000</p>
+            </div>
+            <div class="thumbnail">
+                <img src="http://via.placeholder.com/250x150" alt="">
+                <h1>Product 1</h1>
+                <p>Rp. 250.000</p>
+            </div>    
+            <div class="thumbnail">
+                <img src="http://via.placeholder.com/250x150" alt="">
+                <h1>Product 1</h1>
+                <p>Rp. 250.000</p>
+            </div>
+            <div class="thumbnail">
+                <img src="http://via.placeholder.com/250x150" alt="">
+                <h1>Product 1</h1>
+                <p>Rp. 250.000</p>
+            </div>
+            <div class="thumbnail">
+                <img src="http://via.placeholder.com/250x150" alt="">
+                <h1>Product 1</h1>
+                <p>Rp. 250.000</p>
+            </div>
+        </div>
+        <div class="footer">
+            <h3>Copyright 2019 Planetmars23 Softmedia </h1>
+        </div>
+
+    </div>
+</body>
+</html>
