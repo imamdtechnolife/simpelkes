@@ -1,4 +1,6 @@
-  // render recipe data
+
+
+// render recipe data
 const renderRecipe = (data, id) => {
 
     const html = `

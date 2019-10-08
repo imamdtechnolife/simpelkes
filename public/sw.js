@@ -5,6 +5,10 @@ const assets = [
   '/index.html',
   '/js/app.js',
   '/js/ui.js',
+  '/js/ui-admin.js',
+  '/js/db.js',
+  '/js/connection.js',
+  '/js/userManager.js',
   '/js/materialize.min.js',
   '/css/styles.css',
   '/css/materialize.min.css',
@@ -14,7 +18,6 @@ const assets = [
   '/pages/fallback.html',
   '/pages/login.html',
   '/pages/index.html',
-  '/pages/sandbox.js'
 
   //'https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js',
   //'https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js'
