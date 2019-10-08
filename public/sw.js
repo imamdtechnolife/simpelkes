@@ -12,12 +12,10 @@ const assets = [
   '/js/materialize.min.js',
   '/css/styles.css',
   '/css/materialize.min.css',
-  '/img/dish.png',
+  '/img/tools.png',
+  '/img/icons',  
   'https://fonts.googleapis.com/icon?family=Material+Icons',
   'https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
-  '/pages/fallback.html',
-  '/pages/login.html',
-  '/pages/index.html',
 
   //'https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js',
   //'https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js'

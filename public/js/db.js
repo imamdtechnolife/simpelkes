@@ -10,17 +10,30 @@ db.enablePersistence()
     }
   });
 
-// real-time listener
-db.collection('alkes').onSnapshot(snapshot => {
-  snapshot.docChanges().forEach(change => {
-    if(change.type === 'added'){
-      renderRecipe(change.doc.data(), change.doc.id);
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      console.log('login success!')
+
+      // real-time listener
+      db.collection('alkes').onSnapshot(snapshot => {
+        snapshot.docChanges().forEach(change => {
+          if(change.type === 'added'){
+            renderRecipe(change.doc.data(), change.doc.id);
+          }
+          if(change.type === 'removed'){
+            removeRecipe(change.doc.id);
+          }
+        });
+      });
+      
+    } else {
+      // No user is signed in.
+      alert("you're not login")
     }
-    if(change.type === 'removed'){
-      removeRecipe(change.doc.id);
-    }
-  });
-});
+  });  
+
+
 
 // add new recipe
 const form = document.querySelector('form');

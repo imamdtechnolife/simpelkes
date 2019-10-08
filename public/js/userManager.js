@@ -10,15 +10,18 @@ btnLogin.addEventListener('click', e => {
   const auth = firebase.auth();
   
   //sign in
-  const promise = auth.signInWithEmailAndPassword(email, pass);
-  promise.catch(e =>{console.log(e.message)});
-
-  console.log('login success!');
+  const promise = auth.signInWithEmailAndPassword(email, pass)
+  .then(() => {
+    console.log('login success!');
+    alert('login success!');
+    window.open("https://simpelkes-rsud-klu.web.app/")
+  });
+  promise.catch(e =>{console.log(e.message)
+    alert(e.message)});
 
   txtEmail.value = '';
   txtPassword.value = '';
-  
-   
+
 }); 
 
 btnLogout.addEventListener('click', e => {
@@ -26,6 +29,7 @@ btnLogout.addEventListener('click', e => {
   firebase.auth().signOut()
     .then(function(){
       console.log('logout')
+      alert('logout')
     })
     .catch(function(error) {
     // Handle Errors here.
