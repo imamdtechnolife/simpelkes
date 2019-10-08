@@ -1,4 +1,5 @@
 const recipes = document.querySelector('.recipes');
+const tabs = document.querySelector('.tabs');
 
 document.addEventListener('DOMContentLoaded', function() {
   // nav menu
@@ -13,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var items = document.querySelectorAll('.collapsible');
   M.Collapsible.init(items);
+
+  var tabs = document.querySelectorAll('.tabs');
+  M.Tabs.init(tabs);
   
 });
 

@@ -31,3 +31,14 @@
         const recipe = document.querySelector(`.recipe[data-id=${id}]`);
         recipe.remove();
       };
+
+    const randerRoom = (data) => {
+
+      const html = `
+      <li class="tab col s3"><a href="#${data.room_name}">${data.room_name}</a></li>
+      `
+
+      tabs.innerHTML += html;
+
+    }
+      
