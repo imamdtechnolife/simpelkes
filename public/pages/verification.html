@@ -10,10 +10,12 @@
   <link type="text/css" href="/css/styles.css" rel="stylesheet">
   <script type="text/javascript" src="/js/materialize.min.js"></script>
   <link rel="manifest" href="/manifest.json">
-  <!-- ios support -->
   <link rel="apple-touch-icon" href="/img/icons/icon-96x96.png">
   <meta name="apple-mobile-web-app-status-bar" content="#FFE1C4">
   <meta name="theme-color" content="#FFE1C4">
+  <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-auth.js"></script>
 </head>
 <body class="grey lighten-4">
 
@@ -26,13 +28,19 @@
       </span>
     </div>
   </nav>
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        
+      </ul>
+    </div>
+  </div>
 
   <!-- side nav -->
   <ul id="side-menu" class="sidenav side-menu">
     <li><a class="subheader">SIMPELKES</a></li>
     <li><a href="/" class="waves-effect">Beranda</a></li>
     <li><a href="/pages/login.html" class="waves-effect">Login</a></li>
-    <li><a href="/pages/verification.html" class="waves-effect">Verification</a></li>
     <li><a href="/pages/about.html" class="waves-effect">Tentang</a></li>
     <li><div class="divider"></div></li>
     <li><a href="/pages/contact.html" class="waves-effect">
@@ -40,43 +48,10 @@
     </li>
   </ul>
 
-  <!-- recipes -->
-  <div class="recipes container grey-text text-darken-1">
-    
-  </div>
-
-  <div class="center">
-    <a class="btn-floating btn-small btn-large add-btn sidenav-trigger" data-target="side-form">
-      <i class="material-icons">add</i>
-    </a>
-  </div>
-
-  <!-- add recipe side nav -->
-  <div id="side-form" class="sidenav side-form">
-    <form class="add-recipe container section">
-      <h6 >Tambah Alat</h6>
-      <div class="divider"></div>
-      <div class="input-field">
-        <input placeholder="contoh: Termometer Digital" id="title" type="text" class="validate">
-        <label for="title">Nama Alat</label>
-      </div>
-      <div class="input-field">
-        <input placeholder="contoh: Tindakan, Isolasi, Observasi" id="ingredients" type="text" class="validate">
-        <label for="ingredients">Jenis Alat</label>
-      </div>
-      <div class="input-field center">
-        <button class="btn-small">Tambah</button>
-      </div>
-    </form>
-  </div>
-
-  <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-auth.js"></script>
-  <script src="js/connection.js"></script>
   <script src="/js/app.js"></script>
-  <script src="/js/db-admin.js"></script>
   <script src="/js/ui.js"></script>
-  <script src="/js/ui-admin.js"></script>
+  <script src="/js/ui-verificator.js"></script>
+  <script src="/js/connection.js"></script>
+  <script src="/js/db-verificator.js"></script>
 </body>
 </html>

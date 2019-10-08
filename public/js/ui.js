@@ -1,5 +1,5 @@
 const recipes = document.querySelector('.recipes');
-const tabs = document.querySelector('.tabs');
+const tab = document.querySelector('.tabs');
 
 document.addEventListener('DOMContentLoaded', function() {
   // nav menu

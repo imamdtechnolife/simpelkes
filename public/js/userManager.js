@@ -14,7 +14,6 @@ btnLogin.addEventListener('click', e => {
   .then(() => {
     console.log('login success!');
     alert('login success!');
-    window.open("https://simpelkes-rsud-klu.web.app/")
   });
   promise.catch(e =>{console.log(e.message)
     alert(e.message)});

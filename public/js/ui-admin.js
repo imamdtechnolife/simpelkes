@@ -23,6 +23,7 @@
         
       `;
       recipes.innerHTML += html;
+      console.log('render alkes success!');
     
     };
   
@@ -32,13 +33,5 @@
         recipe.remove();
       };
 
-    const randerRoom = (data) => {
 
-      const html = `
-      <li class="tab col s3"><a href="#${data.room_name}">${data.room_name}</a></li>
-      `
-
-      tabs.innerHTML += html;
-
-    }
       
