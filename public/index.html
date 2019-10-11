@@ -40,6 +40,41 @@
     </li>
   </ul>
 
+  <!-- Form Input Alat Kesehatan -->
+  <form class="add-recipe container section">
+      <h6 >Tambah Alat</h6>
+      <div class="divider"></div>
+      <div class="input-field">
+        <input placeholder="contoh: Termometer Digital" id="title" type="text" class="validate">
+        <label for="title">Nama Alat</label>
+      </div>
+      <div class="input-field">
+        <input placeholder="contoh: Tindakan, Isolasi, Observasi" id="ingredients" type="text" class="validate">
+        <label for="ingredients">Jenis Alat</label>
+      </div>
+      <div class="input-field col s12">
+          <select class="kategori_alkes">
+            <option value="Pelayanan Obstetri dan Ginekologi">Pelayanan Obstetri dan Ginekologi</option>
+            <option value="Pelayanan Radiologi">Pelayanan Radiologi</option>
+            
+            <option value="Pelayanan Anestesiologi dan Terapi Intensif">Pelayanan Anestesiologi dan Terapi Intensif</option>
+            <option value="Pelayanan Rehabilitasi Medik">Pelayanan Rehabilitasi Medik</option>
+            <option value="Pelayanan Kesehatan Anak">Pelayanan Kesehatan Anak</option>
+            <option value="Pelayanan Patologi Anotomi">Pelayanan Patologi Anotomi</option>
+            <option value="Pelayanan Penyakit Dalam">Pelayanan Penyakit Dalam</option>
+            <option value="Pemulasaran Jenazah">Pemulasaran Jenazah</option>
+            <option value="Pelayanan Patologi Klinik">Pelayanan Patologi Klinik</option>
+            <option value="Pelayanan Mikrobiologi">Pelayanan Mikrobiologi</option>
+            <option value="Pelayanan Gawat Darurat">Pelayanan Gawat Darurat</option>
+            <option value="Pelayanan Bedah">Pelayanan Bedah</option>
+            
+          </select>
+        </div>
+      <div class="input-field center">
+        <button class="btn-small">Tambah</button>
+      </div>
+    </form>
+
   <!-- recipes -->
   <div class="recipes container grey-text text-darken-1">
     
@@ -47,7 +82,7 @@
 
   <div class="center">
     <a class="btn-floating btn-small btn-large add-btn sidenav-trigger" data-target="side-form">
-      <i class="material-icons">add</i>
+      <i class="material-icons" >add</i>
     </a>
   </div>
 
@@ -64,6 +99,11 @@
         <input placeholder="contoh: Tindakan, Isolasi, Observasi" id="ingredients" type="text" class="validate">
         <label for="ingredients">Jenis Alat</label>
       </div>
+      <div class="input-field col s12">
+          <select class="kategori_alkes">
+            
+          </select>
+        </div>
       <div class="input-field center">
         <button class="btn-small">Tambah</button>
       </div>
@@ -78,5 +118,7 @@
   <script src="/js/db-admin.js"></script>
   <script src="/js/ui.js"></script>
   <script src="/js/ui-admin.js"></script>
+  <script>
+  </script>
 </body>
 </html>

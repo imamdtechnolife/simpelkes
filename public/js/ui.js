@@ -1,5 +1,6 @@
 const recipes = document.querySelector('.recipes');
 const tab = document.querySelector('.tabs');
+const kategori_alkes = document.querySelector('.kategori_alkes');
 
 document.addEventListener('DOMContentLoaded', function() {
   // nav menu
@@ -17,6 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var tabs = document.querySelectorAll('.tabs');
   M.Tabs.init(tabs);
+
+  var elems = document.querySelectorAll('select');
+  M.FormSelect.init(elems);
   
 });
 
