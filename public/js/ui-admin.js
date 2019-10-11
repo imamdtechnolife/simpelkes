@@ -33,13 +33,13 @@
         recipe.remove();
       };
 
-    const renderSelect = data => {
-      const select = `<option value="${data.kategori}">${data.kategori}</option>`
+    // const renderSelect = data => {
+    //   const select = `<option value="${data.kategori}">${data.kategori}</option>`
 
-      kategori_alkes.innerHTML += select;
-      console.log('render kategori_alkes success!');
+    //   kategori_alkes.innerHTML += select;
+    //   console.log('render kategori_alkes success!');
 
-    };
+    // };
 
 
       

@@ -30,7 +30,7 @@ db.enablePersistence()
       db.collection('kategori_alkes').onSnapshot(snapshot => {
         snapshot.docChanges().forEach(change => {
           if(change.type === 'added'){
-            renderSelect(change.doc.data());
+            //renderSelect(change.doc.data());
           }
         });
       });
