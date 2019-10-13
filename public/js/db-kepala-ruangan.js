@@ -1,6 +1,6 @@
+const dbku = firebase.firestore();
 
-// enable offline data
-db.enablePersistence()
+dbku.enablePersistence()
   .catch(function(err) {
     if (err.code == 'failed-precondition') {
       // probably multible tabs open at once
@@ -17,10 +17,10 @@ db.enablePersistence()
       console.log('login success!')
 
       // real-time listener
-      db.collection('alkes').onSnapshot(snapshot => {
+      dbku.collection('alkes').onSnapshot(snapshot => {
         snapshot.docChanges().forEach(change => {
           if(change.type === 'added'){
-            renderDaftarAlat(change.doc.data(), change.doc.id);
+            renderAlkes(change.doc.data(), change.doc.id);
           }
         });
       });
