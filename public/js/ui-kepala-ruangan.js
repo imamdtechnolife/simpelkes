@@ -14,6 +14,10 @@ const renderAlkes = (data, id) => {
           <div class="recipe-ingredients">${data.jenis_alat}</div>
           <div type='checkbox' id='data'></a>
         </div>
+        <div class="recipe-delete">
+            <input class="amount right" placeholder="Jumlah" data-id="${id}"></input>
+            <label for="amount"></label>
+        </div>
       </div>
       
     `;
