@@ -7,9 +7,7 @@
           <img src="/img/tools.png" alt="recipe thumb">
           <div class="recipe-details">
             <div class="recipe-title">
-              <label>
-                <input type="checkbox" value="${data.nama_alat}">
-                <span class="checkmark"></span>
+              <label>                
                 ${data.nama_alat}
               </label>
             </div>

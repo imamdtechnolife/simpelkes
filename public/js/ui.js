@@ -1,6 +1,9 @@
 const recipes = document.querySelector('.recipes');
 const tab = document.querySelector('.tabs');
 const kategori_alkes = document.querySelector('.kategori_alkes');
+const btnSubmit = document.querySelector('.center');
+const toolList = document.querySelector('.tool-list');
+
 
 document.addEventListener('DOMContentLoaded', function() {
   // nav menu

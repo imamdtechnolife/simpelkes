@@ -12,3 +12,7 @@ var config = {
     firebase.initializeApp(config);
 
     const db = firebase.firestore();
+
+    const dbku = firebase.firestore();
+
+    

@@ -45,12 +45,15 @@ db.enablePersistence()
 
 // add new recipe
 const form = document.querySelector('form');
+var selObj = document.getElementById('kategori');
+let selSelect = selObj.options[selObj.selectedIndex];
 form.addEventListener('submit', evt => {
   evt.preventDefault();
   
   const recipe = {
     nama_alat: form.title.value,
-    jenis_alat: form.ingredients.value
+    jenis_alat: form.ingredients.value,
+    kategori_alat: selSelect.value
   };
 
   db.collection('alkes').add(recipe)

@@ -6,7 +6,11 @@ const assets = [
   '/js/app.js',
   '/js/ui.js',
   '/js/ui-admin.js',
-  '/js/db.js',
+  '/js/db-admin.js',
+  '/js/ui-karu.js',
+  '/js/db-karu.js',
+  '/js/ui-verificator.js',
+  '/js/db-verificator.js',
   '/js/connection.js',
   '/js/userManager.js',
   '/js/materialize.min.js',
@@ -16,9 +20,6 @@ const assets = [
   '/img/icons',  
   'https://fonts.googleapis.com/icon?family=Material+Icons',
   'https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
-
-  //'https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js',
-  //'https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js'
 ];
 
 // cache size limit function
