@@ -58,6 +58,8 @@ nav .sidenav-trigger{
 }
 .recipe-title{
   font-weight: bold;
+  font-size: 1em;
+  margin-bottom: 6px;
 }
 .recipe-ingredients{
   font-size: 0.8em;
@@ -77,4 +79,8 @@ input{
 }
 form .input-field{
   margin-top: 30px;
+}
+
+select {
+  color: burlywood
 }

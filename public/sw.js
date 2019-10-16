@@ -7,8 +7,6 @@ const assets = [
   '/js/ui.js',
   '/js/ui-admin.js',
   '/js/db-admin.js',
-  '/js/ui-kepala-ruangan.js',
-  '/js/db-kepala-ruangan.js',
   '/js/ui-verificator.js',
   '/js/db-verificator.js',
   '/js/connection.js',
@@ -59,7 +57,7 @@ self.addEventListener('activate', evt => {
 });
 
 // fetch events
-// self.addEventListener('fetch', evt => {
+self.addEventListener('fetch', evt => {
 //   if(evt.request.url.indexOf('firestore.googleapis.com') === -1){
 //     evt.respondWith(
 //       caches.match(evt.request).then(cacheRes => {
@@ -78,4 +76,4 @@ self.addEventListener('activate', evt => {
 //       })
 //     );
 //   }
-// });
+});

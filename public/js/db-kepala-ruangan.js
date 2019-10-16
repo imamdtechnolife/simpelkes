@@ -26,3 +26,25 @@ dbku.enablePersistence()
       });
     }
   });
+
+  // add new recipe
+const form = document.querySelector('form');
+form.addEventListener('submit', evt => {
+  evt.preventDefault();
+  
+  if (uid === admin_igd){
+
+  }
+  const recipe = {
+    nama_alat: form.title.value,
+    jenis_alat: form.ingredients.value,
+    kategori_alat: selSelect.value
+  };
+
+  db.collection('alkes').add(recipe)
+    .catch(err => console.log(err));
+
+  form.title.value = '';
+  form.ingredients.value = '';
+  
+});

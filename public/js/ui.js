@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
   M.Tabs.init(tabs);
 
   var elems = document.querySelectorAll('select');
-  M.FormSelect.init(elems);
+  var instances = M.FormSelect.init(elems);
   
 });
 

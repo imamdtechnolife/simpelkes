@@ -7,12 +7,13 @@
           <img src="/img/tools.png" alt="recipe thumb">
           <div class="recipe-details">
             <div class="recipe-title">
-              <label>                
+                            
                 ${data.nama_alat}
-              </label>
+              
             </div>
-            <div class="recipe-ingredients">${data.jenis_alat}</div>
-            <div type='checkbox' id='data'></a>
+            <div class="recipe-ingredients">Jenis Alkes    : ${data.jenis_alat}</div>
+            <div class="recipe-ingredients">Kategori Alkes : ${data.kategori_alat}</div>
+            
           </div>
           <div class="recipe-delete">
             <i class="material-icons" data-id="${id}">delete_outline</i>

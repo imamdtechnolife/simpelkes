@@ -45,15 +45,14 @@ db.enablePersistence()
 
 // add new recipe
 const form = document.querySelector('form');
-var selObj = document.getElementById('kategori');
-let selSelect = selObj.options[selObj.selectedIndex];
+var e = document.getElementById("kategori");
 form.addEventListener('submit', evt => {
   evt.preventDefault();
-  
+
   const recipe = {
     nama_alat: form.title.value,
     jenis_alat: form.ingredients.value,
-    kategori_alat: selSelect.value
+    kategori_alat: e.options[e.selectedIndex].value
   };
 
   db.collection('alkes').add(recipe)
@@ -61,6 +60,7 @@ form.addEventListener('submit', evt => {
 
   form.title.value = '';
   form.ingredients.value = '';
+  e.options.selectedIndex = 0;
   
 });
 
