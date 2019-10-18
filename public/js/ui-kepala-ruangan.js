@@ -27,6 +27,7 @@ const renderAlkes = (data, id) => {
     `;
     // listAlkes.innerHTML += html;
     listAlkes.insertAdjacentHTML( 'beforeend', html );
+
     
   
   };
