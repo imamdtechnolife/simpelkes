@@ -16,6 +16,7 @@
   <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-auth.js"></script>
+  <script src="/js/jquery-3.4.1.min.js"></script>
 </head>
 <body class="grey lighten-4">     
 
@@ -28,7 +29,7 @@
       </span>
     </div>
   </nav>
-  <form class="permintaan-alat" action="">
+  <!-- <form class="permintaan-alat" action=""> -->
     <div class="listAlkes container">
 
     </div>
@@ -39,9 +40,15 @@
           <i class="material-icons right" >send</i>
         </button>
       </div>
-  </form>
-  
 
+      <div  class="list container">
+        <ul id="list-karu">
+
+        </ul>
+
+      </div>
+  <!-- </form> -->
+  
   <!-- side nav -->
   <ul id="side-menu" class="sidenav side-menu">
     <li><a class="subheader">SIMPALKES</a></li>
@@ -52,7 +59,6 @@
       <i class="material-icons">mail_outline</i>Kontak</a>
     </li>
   </ul>
-
   
   <script src="/js/connection.js"></script>
   <script src="/js/db-kepala-ruangan.js"></script>

@@ -47,12 +47,20 @@ nav .sidenav-trigger{
   grid-area: details;
   margin-top: 6px;
 }
-.recipe-delete{
+.recipe-delete {
   grid-area: delete;
   position: absolute;
   bottom: 0px;
   right: 0px;
 }
+
+.jumlah-alat{
+  grid-area: delete;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
 .recipe-delete i{
   font-size: 18px;
 }
@@ -61,7 +69,15 @@ nav .sidenav-trigger{
   font-size: 1em;
   margin-bottom: 6px;
 }
-.recipe-ingredients{
+.recipe-ingredients .kategori-alat .jenis-alat{
+  font-size: 0.8em;
+}
+
+.kategori-alat{
+  font-size: 0.8em;
+}
+
+.jenis-alat{
   font-size: 0.8em;
 }
 
