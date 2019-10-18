@@ -1,5 +1,6 @@
 const dbku = firebase.firestore();
 
+
 dbku.enablePersistence()
   .catch(function(err) {
     if (err.code == 'failed-precondition') {
@@ -11,24 +12,32 @@ dbku.enablePersistence()
     }
   });
 
+  
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
       console.log('login success!')
-
+      let dragon = [];
       // real-time listener
       dbku.collection('alkes').onSnapshot(snapshot => {
         snapshot.docChanges().forEach(change => {
           if(change.type === 'added'){
             renderAlkes(change.doc.data(), change.doc.id);
+            // console.log(change.doc.data());
+            dragon = change.doc.data()
+            // console.log(dragon)
           }
         });
       });
+
+      
     }
   });
 
-
-
+  // console.log(list);
+  console.log(dragon);
+  
+  
   // add new recipe
 // const form = document.querySelector('form');
 // form.addEventListener('checkbox-alat', evt => {
