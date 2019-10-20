@@ -1,5 +1,5 @@
 const dbku = firebase.firestore();
-
+const searching = document.getElementById('searching');
 
 dbku.enablePersistence()
   .catch(function(err) {
@@ -12,6 +12,9 @@ dbku.enablePersistence()
     }
   });
 
+  searching.addEventListener('change', e => {
+    console.log(e)
+  })
   
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -29,13 +32,9 @@ dbku.enablePersistence()
           }
         });
       });
-
-      
     }
   });
 
-  // console.log(list);
-  console.log(dragon);
   
   
   // add new recipe
@@ -58,7 +57,7 @@ function ready(fn) {
 
 ready(() => {
   let selection = {};
-  let checkboxElems = document.querySelectorAll("div");
+  let checkboxElems = document.querySelectorAll("checkbox");
   let toolsTotal = document.getElementById('total');
   let listTools = document.getElementById('list-karu');
 

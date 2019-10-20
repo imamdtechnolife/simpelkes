@@ -23,11 +23,7 @@ const renderAlkes = (data, id) => {
           </div>
         </div>
       </div>
-      
     `;
     // listAlkes.innerHTML += html;
     listAlkes.insertAdjacentHTML( 'beforeend', html );
-
-    
-  
   };

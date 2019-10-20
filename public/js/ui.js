@@ -1,5 +1,5 @@
 const recipes = document.querySelector('.recipes'); //index.html
-const tab = document.querySelector('.tabs'); //verification.html
+const tab = document.querySelector('tabs-bro'); //verification.html
 const kategori_alkes = document.querySelector('.kategori_alkes'); //index.html
 const listAlkes = document.querySelector('.listAlkes');
 
@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var items = document.querySelectorAll('.collapsible');
   M.Collapsible.init(items);
 
-  var tabs = document.querySelectorAll('.tabs');
-  M.Tabs.init(tabs);
+  var tabs = document.querySelector('.tabs');
+  var instance = M.Tabs.init(tabs);
 
   var elems = document.querySelectorAll('select');
   var instances = M.FormSelect.init(elems);
