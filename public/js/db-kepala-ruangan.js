@@ -47,59 +47,82 @@ dbku.enablePersistence()
     
 // });
 
-function ready(fn) {
-  if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
-    fn();
-  } else {
-    document.addEventListener('DOMContentLoaded', fn);
-  }
-}
+// function ready(fn) {
+//   if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
+//     fn();
+//   } else {
+//     document.addEventListener('DOMContentLoaded', fn);
+//   }
+// }
 
-ready(() => {
-  let selection = {};
-  let checkboxElems = document.querySelectorAll("checkbox");
-  let toolsTotal = document.getElementById('total');
-  let listTools = document.getElementById('list-karu');
+// ready(() => {
+//   let selection = {};
+//   let checkboxElems = document.getElementsByName("checkbox")
+//   let toolsTotal = document.getElementById('total');
+//   let listTools = document.getElementById('list-karu');
 
-  console.log(checkboxElems);
+//   console.log(checkboxElems);
 
-  for(let i = 0; i < checkboxElems.length; i++){
-    checkboxElems[i].addEventListener("click", itemClicked)
-  }
+//   for(let i = 0; i < checkboxElems.length; i++){
+//     checkboxElems[i].addEventListener('onClick', itemClicked)
+//   }
 
-  function itemClicked(e){
-    if(e.target.checked){
-      selection[e.target.id] = {
-        nama_alat : 'dragon',
-        id_alat : e.target.id
-      };
-    } else {
-      delete selection[e.target.id];
-    }
-  };
-
-  let result = [];
-  let total = 0;
-
-  for (var key in selection){
-    var listItem = "<li>" + selections[key].value + "</li>";
-    result.push(listItem);
-  }
-  console.log(listItem); 
-
-  listTools.innerHTML = result;
-  // var checkbox = document.querySelector("checkbox");
-//   var checkbox = document.querySelector("checkbox");
-// if(checkbox){
-//   checkbox.addEventListener("change", function() {
-//     if(this.checked) {
-//         // Checkbox is checked..
-//         console.log("running")
+//   function itemClicked(e){
+//     if(e.target.checked){
+//       selection[e.target.id] = {
+//         nama_alat : 'dragon',
+//         id_alat : e.target.id
+//       };
 //     } else {
-//         // Checkbox is not checked..
+//       delete selection[e.target.id];
 //     }
+//   };
+
+//   let result = [];
+//   let total = 0;
+
+//   for (var key in selection){
+//     var listItem = "<li>" + selections[key].value + "</li>";
+//     result.push(listItem);
+//   }
 // });
-});
+//   listTools.innerHTML = result;
+  var checkbox = document.getElementsByTagName('input');
+  var dragon = document.createElement("label");
+  dragon.innerHTML = "imam";
+  // for(var i = 0; i < checkbox.length; i++){
+  //       checkbox[i].addEventListener("change", checkedOrNot)
+  //     }
+
+      for(var i = 0; i < checkbox.length; i++){
+        if(checkbox[i].type == "checkbox") {
+            checkbox[i].addEventListener("change", checkedOrNot)
+        }
+    }
+
+      function checkedOrNot() {
+        var isChecked = this.checked;
+      
+        if (isChecked) { //checked
+          console.log('checked');
+        } else { //unchecked
+          console.log('unchecked');
+        }
+      }
+  // function itemClicked(){
+  //   if(checkbox){
+  //     checkbox.addEventListener("change", function() {
+  //       if(this.checked) {
+  //           // Checkbox is checked..
+  //           console.log("running")
+  //       } else {
+  //           // Checkbox is not checked..
+  //       }
+  //   })};
+  // }
+  console.log(checkbox);
+ 
+
 
 // document.addEventListener('DOMContentLoaded', function () {
 //  let dragon =  document.querySelector('#checkbox').addEventListener('change', function() {

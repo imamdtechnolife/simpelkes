@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div class="customer-club-widget__gender__categories">
+        <input type="checkbox" class="form__input-checkbox" /> A
+        <br>
+        <input type="checkbox" class="form__input-checkbox" /> B
+        <br>
+        <input type="checkbox" class="form__input-checkbox" /> C 
+        <br>
+        <input type="checkbox" class="form__input-checkbox" /> D
+      </div>
+</body>
+<script>
+    var checkbox = document.querySelectorAll('.customer-club-widget__gender__categories .form__input-checkbox');
+    console.log(checkbox);
+for (var i = 0; i < checkbox.length; i++) {
+  checkbox[i].addEventListener("change", checkedOrNot);
+}
+
+function checkedOrNot() {
+  var isChecked = this.checked;
+
+  if (isChecked) { //checked
+    console.log('checked');
+  } else { //unchecked
+    console.log('unchecked');
+  }
+}
+</script>
+</html>
