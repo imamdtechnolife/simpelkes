@@ -14,12 +14,15 @@ btnLogin.addEventListener('click', e => {
   .then(() => {
     console.log('login success!');
     alert('login success!');
+    window.history.back();
+   
   });
   promise.catch(e =>{console.log(e.message)
     alert(e.message)});
 
   txtEmail.value = '';
   txtPassword.value = '';
+  location.replace('http://sidanmor.com');
 
 }); 
 
@@ -39,6 +42,7 @@ btnLogout.addEventListener('click', e => {
   firebase.auth().onAuthStateChanged(firebaseUser => {
     if(firebaseUser){
       console.log(firebaseUser);
+      window.history.back();
     } else {
       console.log('not logged in');
     }

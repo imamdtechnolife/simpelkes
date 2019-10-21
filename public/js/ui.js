@@ -1,8 +1,6 @@
 const recipes = document.querySelector('.recipes'); //index.html
 const tab = document.querySelector('tabs-bro'); //verification.html
 const kategori_alkes = document.querySelector('.kategori_alkes'); //index.html
-const listAlkes = document.querySelector('.listAlkes');
-
 
 document.addEventListener('DOMContentLoaded', function() {
   // nav menu

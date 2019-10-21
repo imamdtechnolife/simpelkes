@@ -1,3 +1,11 @@
+const listAlkes = document.querySelector('.listAlkes');
+
+document.addEventListener('DOMContentLoaded', function() {
+  // nav menu
+  const menus = document.querySelectorAll('.side-menu');
+  M.Sidenav.init(menus, {edge: 'right'});
+  
+});
 const renderAlkes = (data, id) => {
   
   let divPanel = document.createElement('div')
@@ -15,6 +23,9 @@ const renderAlkes = (data, id) => {
   let divRecipeTitle = document.createElement('div');
   divRecipeTitle.setAttribute('class', "recipe-title");
   // console.log(divRecipeTitle);
+  form = document.createElement('form');
+  form.setAttribute('action','#')
+  form.setAttribute('class', 'container center')
   let label = document.createElement('label');
   label.setAttribute('class', "list");
   label.innerHTML = `${data.nama_alat}`;
@@ -29,10 +40,14 @@ const renderAlkes = (data, id) => {
   // console.log(label);
   divPanel.appendChild(imgTools);
   divPanel.appendChild(divRecipeDetail);
-  divRecipeDetail.appendChild(divRecipeTitle);
-  divRecipeTitle.appendChild(label);
+  
+  // divRecipeTitle.appendChild(form);
+  // form.appendChild(label);
   label.appendChild(input);
   label.appendChild(span);
+  form.appendChild(label);
+  divRecipeDetail.appendChild(form);
+
   // console.log(divPanel);
     const html = `
       <div class="card-panel recipe white row" data-id="${id}">
@@ -61,6 +76,7 @@ const renderAlkes = (data, id) => {
     //  listAlkes.innerHTML += html;
     // listAlkes.insertAdjacentHTML( 'beforeend', divPanel );
     listAlkes.appendChild(divPanel);
+    // console.log(divPanel);
   };
 
   
