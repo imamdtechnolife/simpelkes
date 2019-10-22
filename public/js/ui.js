@@ -1,6 +1,7 @@
 const recipes = document.querySelector('.recipes'); //index.html
-const tab = document.querySelector('tabs-bro'); //verification.html
+const tab = document.querySelector('.tabs'); //verification.html
 const kategori_alkes = document.querySelector('.kategori_alkes'); //index.html
+console.log(tab);
 
 document.addEventListener('DOMContentLoaded', function() {
   // nav menu
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
   M.Collapsible.init(items);
 
   var tabs = document.querySelector('.tabs');
-  var instance = M.Tabs.init(tabs);
+  M.Tabs.init(tabs);
 
   var elems = document.querySelectorAll('select');
   var instances = M.FormSelect.init(elems);
