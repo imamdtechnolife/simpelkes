@@ -34,7 +34,8 @@ dbku.enablePersistence()
         });
       });
 
-      var checkbox = document.getElementsByTagName('input');
+      document.addEventListener('DOMContentLoaded', function() {
+        var checkbox = document.getElementsByTagName('input');
       for(var i = 0; i < checkbox.length; i++){
         if(checkbox[i].type == "checkbox") {
             checkbox[i].addEventListener("change", checkedOrNot)
@@ -50,7 +51,9 @@ dbku.enablePersistence()
           console.log('unchecked');
         }
       }
-      console.log(checkbox);
+      });
+      
+      
     }
   });
 
