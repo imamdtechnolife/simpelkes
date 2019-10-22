@@ -76,6 +76,9 @@ const renderAlkes = (data, id) => {
     //  listAlkes.innerHTML += html;
     // listAlkes.insertAdjacentHTML( 'beforeend', divPanel );
     listAlkes.appendChild(divPanel);
+    
+      
+   
     // console.log(divPanel);
   };
 

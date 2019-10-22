@@ -10,7 +10,6 @@ const assets = [
   '/js/ui-verificator.js',
   '/js/db-verificator.js',
   '/js/connection.js',
-  '/js/userManager.js',
   '/js/materialize.min.js',
   '/css/styles.css',
   '/css/materialize.min.css',

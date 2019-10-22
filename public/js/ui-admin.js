@@ -1,29 +1,44 @@
 
     // render recipe data
+
     const renderRecipe = (data, id) => {
-  
-      const html = `
-        <div class="card-panel recipe white row" data-id="${id}">
-          <img src="/img/tools.png" alt="recipe thumb">
-          <div class="recipe-details">
-            <div class="recipe-title">
-                            
-                ${data.nama_alat}
-              
-            </div>
-            <div class="recipe-ingredients">Jenis Alkes    : ${data.jenis_alat}</div>
-            <div class="recipe-ingredients">Kategori Alkes : ${data.kategori_alat}</div>
-            
-          </div>
-          <div class="recipe-delete">
-            <i class="material-icons" data-id="${id}">delete_outline</i>
-          </div>
-        </div>
-        
-      `;
-      recipes.innerHTML += html;
-      console.log('render alkes success!');
-    
+
+      let divPanel = document.createElement('div')
+      divPanel.setAttribute('class', "card-panel recipe white row");
+      divPanel.setAttribute('data-id', `${id}`);
+      // console.log(divPanel);
+      let imgTools = document.createElement('img');
+      imgTools.setAttribute('src', "/img/tools.png");
+      imgTools.setAttribute('alt', "recipe thumb");
+      // console.log(imgTools);
+      let divRecipeDetail = document.createElement('div');
+      divRecipeDetail.setAttribute('class', "recipe-details");
+      // console.log(divRecipeDetail);
+      let divRecipeTitle = document.createElement('div');
+      divRecipeTitle.setAttribute('class', "recipe-title");
+      divRecipeTitle.innerHTML = `${data.nama_alat}`;
+      let divJenisAlkes = document.createElement('div');
+      divJenisAlkes.setAttribute('class', "recipe-ingredients");
+      divJenisAlkes.innerHTML = `Jenis Alkes   : ${data.jenis_alat}`;
+      let divKategoriAlkes = document.createElement('div');
+      divKategoriAlkes.setAttribute('class', "recipe-ingredients");
+      divKategoriAlkes.innerHTML = `Kategori Alkes  : ${data.kategori_alat}`;
+      let divDeleteButton = document.createElement('div');
+      divDeleteButton.setAttribute('class', "recipe-delete");
+      let iButton = document.createElement('i');
+      iButton.setAttribute('class', "material-icons");
+      iButton.setAttribute('data-id', `"${id}"`);
+      iButton.innerHTML = "delete_outline";
+      divPanel.appendChild(imgTools);
+      divPanel.appendChild(divRecipeDetail);
+      divRecipeDetail.appendChild(divRecipeTitle);
+      divRecipeDetail.appendChild(divJenisAlkes);
+      divRecipeDetail.appendChild(divKategoriAlkes);
+      divPanel.appendChild(divDeleteButton);
+      divDeleteButton.appendChild(iButton);
+      recipes.appendChild(divPanel);
+      console.log("render success!");
+          
     };
   
     // remove recipe
@@ -31,14 +46,6 @@
         const recipe = document.querySelector(`.recipe[data-id=${id}]`);
         recipe.remove();
       };
-
-    // const renderSelect = data => {
-    //   const select = `<option value="${data.kategori}">${data.kategori}</option>`
-
-    //   kategori_alkes.innerHTML += select;
-    //   console.log('render kategori_alkes success!');
-
-    // };
 
 
       

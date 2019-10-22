@@ -16,7 +16,7 @@ db.enablePersistence()
       console.log('login success!')
 
       // real-time listener
-      db.collection('alkes').onSnapshot(snapshot => {
+      db.collection('alkes').orderBy('nama_alat', 'asc').onSnapshot(snapshot => {
         snapshot.docChanges().forEach(change => {
           if(change.type === 'added'){
             renderRecipe(change.doc.data(), change.doc.id);
@@ -25,6 +25,8 @@ db.enablePersistence()
             removeRecipe(change.doc.id);
           }
         });
+        let dragon = document.querySelector('.progress');
+        dragon.remove();
       });
 
       db.collection('kategori_alkes').onSnapshot(snapshot => {
@@ -60,7 +62,10 @@ form.addEventListener('submit', evt => {
 
   form.title.value = '';
   form.ingredients.value = '';
-  e.options.selectedIndex = 0;
+  document.addEventListener('DOMContentLoaded', function() {
+    M.toast({html: 'Data alkes berhasi tersimpan!'});
+  });
+  
   
 });
 
