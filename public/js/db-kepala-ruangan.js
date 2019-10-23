@@ -47,6 +47,7 @@ dbku.enablePersistence()
       
         if (isChecked) { //checked
           console.log('checked');
+          
         } else { //unchecked
           console.log('unchecked');
         }
