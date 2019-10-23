@@ -1,4 +1,6 @@
 const formAlkes = document.querySelector('.listBajakLaut');
+var selection = {};
+const listAlkesTerpilih = document.querySelector('.listAlkes');
 
 document.addEventListener('DOMContentLoaded', function() {
   // nav menu
@@ -12,16 +14,9 @@ const renderAlkes = (data, id) => {
   let label = document.createElement('label');
   let input = document.createElement('input');
   input.setAttribute('type', 'checkbox');
+  input.setAttribute('id', `${id}`);
+  input.setAttribute('value',`${data.nama_alat}`);
   input.addEventListener("change", checkedOrNot);
-  function checkedOrNot() {
-    var isChecked = this.checked;
-  
-    if (isChecked) { //checked
-      console.log('checked');
-    } else { //unchecked
-      console.log('unchecked');
-    }
-  }
   
   let span = document.createElement('span');
   span.innerHTML = `${data.nama_alat}`;
@@ -30,6 +25,49 @@ const renderAlkes = (data, id) => {
   label.appendChild(input);
   label.appendChild(span);
   formAlkes.appendChild(p);
+};
+
+function checkedOrNot(e) {
+  var isChecked = this.checked;
+ 
+  if (isChecked) { //checked
+    console.log('checked');
+    selection[e.target.id] = {
+      name : e.target.value
+    }
+  } else { //unchecked
+    console.log('unchecked');
+    delete selection[e.target.id];
+  }
+
+  let result = [];
+
+  for(key in selection){
+    // let p = document.createElement('p');
+    // let label = document.createElement('label');
+    // let input = document.createElement('input');
+    // input.setAttribute('type','checbox');
+    // input.setAttribute('checked','checked');
+    // input.setAttribute('status','disabled');
+    // let span = document.createElement('span');
+    // span.innerHTML = selection[key].name;
+    // p.appendChild(label);
+    // label.appendChild(input);
+    // label.appendChild(span);
+
+    let alkesTerpilih = 
+    `<p class="container" style="margin-bottom: 10px;">
+      <label class="container">
+        <input type="checkbox" checked="checked" disabled="disabled"/>
+        <span>${selection[key].name}</span>
+      </label>
+    </p>`;
+    result.push(alkesTerpilih);
+  }
+
+  listAlkesTerpilih.innerHTML = result.join(""); 
+
+}
   
   // let divPanel = document.createElement('div')
   // divPanel.setAttribute('class', "card-panel recipe white row");
@@ -103,6 +141,6 @@ const renderAlkes = (data, id) => {
       
    
     // console.log(divPanel);
-  };
+  
 
   
