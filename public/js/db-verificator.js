@@ -27,7 +27,8 @@ db.enablePersistence()
       let email = user.email;
       if(email == "imamdtechnolife@gmail.com"){
 
-        db.collection('igd').onSnapshot(snapshot => {
+        // .where("number", "==", 3)
+        db.collection('ruangIGD').onSnapshot(snapshot => {
           snapshot.docChanges().forEach(change => {
             if(change.type === 'added'){
               renderPilihan(change.doc.data());

@@ -62,10 +62,8 @@ form.addEventListener('submit', evt => {
 
   form.title.value = '';
   form.ingredients.value = '';
-  document.addEventListener('DOMContentLoaded', function() {
-    M.toast({html: 'Data alkes berhasi tersimpan!'});
-  });
   
+  M.toast({html: 'Data alkes berhasi tersimpan!'});
   
 });
 
