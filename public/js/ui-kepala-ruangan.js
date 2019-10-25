@@ -64,8 +64,6 @@ function checkedOrNot(e) {
     `;
     result.push(alkesTerpilih);
   }
-
-
   listAlkesTerpilih.innerHTML = result.join(""); 
 }
 
@@ -74,12 +72,9 @@ function checkedOrNot(e) {
     var jmlAlat = e.target.value
     console.log(jmlAlat);
   });
+
   btnSubmit.addEventListener('click', e => {
-
     for(key in selection){
-
-     
-
       const alkesPilihan = {
         nama_alat: selection[key].name,
         jumlah_alat: 3,
@@ -88,9 +83,7 @@ function checkedOrNot(e) {
       console.log(alkesPilihan);
       db.collection('ruangIGD').add(alkesPilihan)
       .catch(err => console.log(err));
-
     }
-
     M.toast({html: 'Data alkes berhasil tersimpan!'});
   })
     
