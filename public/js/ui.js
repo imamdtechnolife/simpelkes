@@ -1,7 +1,6 @@
 const recipes = document.querySelector('.recipes'); //index.html
 const tab = document.querySelector('.tabs'); //verification.html
 const kategori_alkes = document.querySelector('.kategori_alkes'); //index.html
-console.log(tab);
 
 document.addEventListener('DOMContentLoaded', function() {
   // nav menu

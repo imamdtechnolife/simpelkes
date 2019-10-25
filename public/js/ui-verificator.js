@@ -9,4 +9,14 @@
       console.log('render room success!');
 
     };
+
+    const imam = document.querySelector('.listIGD');
+
+    //render pilihan data
+    const renderPilihan = (data) => {
+      const pilihan = `<li>${data.nama_alat}</li>`
+
+      imam.innerHTML += pilihan;
+      console.log('render pilihan success!')
+    }
       

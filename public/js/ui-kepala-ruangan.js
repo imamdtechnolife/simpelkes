@@ -1,6 +1,7 @@
 const formAlkes = document.querySelector('.listBajakLaut');
 var selection = {};
 const listAlkesTerpilih = document.querySelector('.listAlkes');
+const btnSubmit = document.querySelector('#submit');
 
 document.addEventListener('DOMContentLoaded', function() {
   // nav menu
@@ -8,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
   M.Sidenav.init(menus, {edge: 'right'});
   
 });
+
+// daftar alkes
 const renderAlkes = (data, id) => {
 
   let p = document.createElement('p');
@@ -33,14 +36,17 @@ function checkedOrNot(e) {
   if (isChecked) { //checked
     console.log('checked');
     selection[e.target.id] = {
-      name : e.target.value
+      name : e.target.value,
     }
   } else { //unchecked
     console.log('unchecked');
     delete selection[e.target.id];
   }
 
-  let result = [];
+  var result = [];
+  const form = document.querySelector('form');
+  let alkes = document.querySelectorAll('.alkes');
+  
 
   for(key in selection){
     // let p = document.createElement('p');
@@ -55,19 +61,72 @@ function checkedOrNot(e) {
     // label.appendChild(input);
     // label.appendChild(span);
 
-    let alkesTerpilih = 
-    `<p class="container" style="margin-bottom: 10px;">
-      <label class="container">
-        <input type="checkbox" checked="checked" disabled="disabled"/>
-        <span>${selection[key].name}</span>
-      </label>
-    </p>`;
+    var alkesTerpilih = 
+    `
+    <div class="alkes" value="${selection[key].name}">
+      <p class="container" style="margin-bottom: 10px;">
+        <label class="container">
+          <input type="checkbox" checked="checked" disabled="disabled" id="listTerpilih" value="${selection[key].name}"/>
+          <span>${selection[key].name}</span>
+        </label>
+        <input type="text" placeholder="Jumlah" id="jumlah-alat"/>
+      </p>
+    </div>
+    `;
     result.push(alkesTerpilih);
   }
 
-  listAlkesTerpilih.innerHTML = result.join(""); 
 
+  listAlkesTerpilih.innerHTML = result.join(""); 
 }
+
+  // btnSubmit.addEventListener('click', e => {
+  //   console.log('hello');
+
+  //   console.log(alkes);
+  //   alkes.forEach(i => {
+
+  //     const terpilih = {
+  //       name : form.listTerpilih.value
+  //     }
+
+  //     db.collection('igd').add(terpilih)
+  //     .then(console.log('data berhasil tersimpan!'))
+  //     .catch(err => console.log(err));
+
+  //   })
+  // });
+
+  btnSubmit.addEventListener('click', e => {
+
+    for(key in selection){
+      const alkesPilihan = {
+        nama_alat: selection[key].name
+        // jenis_alat: form.ingredients.value,
+        // kategori_alat: e.options[e.selectedIndex].value
+      };
+      console.log(alkesPilihan);
+      db.collection('igd').add(alkesPilihan)
+      .catch(err => console.log(err));
+
+    }
+
+    
+    // alkes.forEach(e => {
+      
+    //   const alkesPilihan = {
+    //     nama_alat: selection[key].name
+    //     // jenis_alat: form.ingredients.value,
+    //     // kategori_alat: e.options[e.selectedIndex].value
+    //   };
+      
+    //   console.log(alkesPilihan)
+    //   db.collection('igd').add(alkesPilihan)
+    //     .catch(err => console.log(err));
+    // }
+    M.toast({html: 'Data alkes berhasil tersimpan!'});
+  })
+
   
   // let divPanel = document.createElement('div')
   // divPanel.setAttribute('class', "card-panel recipe white row");

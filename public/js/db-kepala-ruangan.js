@@ -1,5 +1,6 @@
 const dbku = firebase.firestore();
 const searching = document.getElementById('searching');
+const divAlkes = document.querySelector('.alkes');
 
 dbku.enablePersistence()
   .catch(function(err) {
@@ -12,10 +13,11 @@ dbku.enablePersistence()
     }
   });
 
+  // searching
   searching.addEventListener('change', e => {
-    console.log(e)
+    console.log(e);
   })
-  
+
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
@@ -32,29 +34,7 @@ dbku.enablePersistence()
 
           }
         });
-      });
-
-      document.addEventListener('DOMContentLoaded', function() {
-        var checkbox = document.getElementsByTagName('input');
-      for(var i = 0; i < checkbox.length; i++){
-        if(checkbox[i].type == "checkbox") {
-            checkbox[i].addEventListener("change", checkedOrNot)
-        }
-    }
-
-      function checkedOrNot() {
-        var isChecked = this.checked;
-      
-        if (isChecked) { //checked
-          console.log('checked');
-          
-        } else { //unchecked
-          console.log('unchecked');
-        }
-      }
-      });
-      
-      
+      });      
     }
   });
 

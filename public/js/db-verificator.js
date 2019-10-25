@@ -23,6 +23,19 @@ db.enablePersistence()
           }
         });
       });
+
+      let email = user.email;
+      if(email == "imamdtechnolife@gmail.com"){
+
+        db.collection('igd').onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderPilihan(change.doc.data());
+            }
+          });
+        });
+
+      }
       
     } else {
       // No user is signed in.
