@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // nav menu
   const menus = document.querySelectorAll('.side-menu');
   M.Sidenav.init(menus, {edge: 'right'});
-  
 });
 
 // daftar alkes
@@ -49,41 +48,37 @@ function checkedOrNot(e) {
 
     var alkesTerpilih = 
     `
-    <div class="alkes" value="${selection[key].name}">
+    <form class="alkes" value="${selection[key].name}">
       <p class="container" style="margin-bottom: 10px;">
         <label class="container">
           <input type="checkbox" checked="checked" disabled="disabled" id="listTerpilih" value="${selection[key].name}"/>
           <span>${selection[key].name}</span>
         </label>
         <div class="input-field">
-          <input type="text" id="jumlah-alat"/>
+          <input type="text" class="jumlah" id="jumlah" data-id="${selection[key].name}"/>
           <label for="#jumlah-alat">Jumlah</label>
         </div>
       </p>
-    </div>
+    </form>
     `;
     result.push(alkesTerpilih);
   }
   listAlkesTerpilih.innerHTML = result.join(""); 
 }
 
-  const jumlahAlat = document.querySelectorAll("jumlah-alat");
-  jumlahAlat.forEach( e =>{
-    var jmlAlat = e.target.value
-    console.log(jmlAlat);
-  });
-
   btnSubmit.addEventListener('click', e => {
-    for(key in selection){
-      const alkesPilihan = {
-        nama_alat: selection[key].name,
-        jumlah_alat: 3,
-        number: 3
-      };
-      console.log(alkesPilihan);
-      db.collection('ruangIGD').add(alkesPilihan)
-      .catch(err => console.log(err));
-    }
+
+      const alkes = document.querySelectorAll('.alkes');
+        for(let i=0; i < alkes.length;){
+        const alkesPilihan = {
+          nama_alat: alkes[i].listTerpilih.value,
+          jumlah_alat: alkes[i].jumlah.value
+        };
+        console.log(alkesPilihan);
+        db.collection('ruangIGD').add(alkesPilihan)
+        .catch(err => console.log(err));
+        i++;
+      }
     M.toast({html: 'Data alkes berhasil tersimpan!'});
   })
     
