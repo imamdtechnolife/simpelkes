@@ -13,8 +13,9 @@ db.enablePersistence()
   firebase.auth().onAuthStateChanged(function(user) {
     if (user.email == "admin.simpalkes@rsudklu.com") {
       // User is signed in.
+      console.log(user.email);
       console.log('login success!')
-      form.hidden(false);
+      form.style.visibility = "visible"
 
       // real-time listener
       db.collection('alkes').orderBy('nama_alat', 'asc').onSnapshot(snapshot => {
@@ -40,7 +41,7 @@ db.enablePersistence()
       
     } else {
       // No user is signed in.
-      alert("you're not login")
+      
     }
   });  
 

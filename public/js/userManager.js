@@ -11,10 +11,17 @@ btnLogin.addEventListener('click', e => {
   
   //sign in
   const promise = auth.signInWithEmailAndPassword(email, pass)
-  .then(() => {
+  .then((user) => {
+    if(user.email == "igd@rsudklu.com" || user.email == "icu@rsudklu.com"){
+      karuPage
+    }
+    else{
+      window.history.back();
+    }
+    
     console.log('login success!');
     alert('login success!');
-   
+    
   });
   promise.catch(e =>{console.log(e.message)
     alert(e.message)});
@@ -39,9 +46,15 @@ btnLogout.addEventListener('click', e => {
 
   firebase.auth().onAuthStateChanged(firebaseUser => {
     if(firebaseUser){
-      console.log(firebaseUser);
-      window.history.back();
+      console.log("User: ",firebaseUser.email);
+      
     } else {
-      console.log('not logged in');
+      console.log("You're not logged in");
     }
-});
+  });
+
+  //url karu
+  function karuPage(){
+    window.open("https://simpelkes-rsud-klu.web.app/pages/karu.html")
+  }
+
