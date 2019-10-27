@@ -5,6 +5,7 @@ const assets = [
   '/index.html',
   '/js/app.js',
   '/js/ui.js',
+  '/js/userManager.js',
   '/js/ui-admin.js',
   '/js/db-admin.js',
   '/js/ui-verificator.js',

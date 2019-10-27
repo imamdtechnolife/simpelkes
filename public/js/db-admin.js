@@ -11,9 +11,10 @@ db.enablePersistence()
   });
 
   firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
+    if (user.email == "admin.simpalkes@rsudklu.com") {
       // User is signed in.
       console.log('login success!')
+      form.hidden(false);
 
       // real-time listener
       db.collection('alkes').orderBy('nama_alat', 'asc').onSnapshot(snapshot => {
