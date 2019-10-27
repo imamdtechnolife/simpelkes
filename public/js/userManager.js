@@ -12,12 +12,7 @@ btnLogin.addEventListener('click', e => {
   //sign in
   const promise = auth.signInWithEmailAndPassword(email, pass)
   .then((user) => {
-    if(user.email == "igd@rsudklu.com" || user.email == "icu@rsudklu.com"){
-      karuPage
-    }
-    else{
-      window.history.back();
-    }
+    
     
     console.log('login success!');
     alert('login success!');
