@@ -2,6 +2,7 @@ const formAlkes = document.querySelector('.listBajakLaut');
 var selection = {};
 const listAlkesTerpilih = document.querySelector('.listAlkes');
 const btnSubmit = document.querySelector('#submit');
+const btnRefresh = document.querySelector('#refresh');
 
 document.addEventListener('DOMContentLoaded', function() {
   // nav menu
@@ -66,9 +67,25 @@ function checkedOrNot(e) {
   listAlkesTerpilih.innerHTML = result.join(""); 
 }
 
-  btnSubmit.addEventListener('click', e => {
+  // refresh action
+  btnRefresh.addEventListener('click', e => {
+    db.collection("ruangIGD")
+    .get()
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            doc.ref.delete()
+        });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+  })
 
-      const alkes = document.querySelectorAll('.alkes');
+  // submit action
+  btnSubmit.addEventListener('click', e => {
+    
+    const alkes = document.querySelectorAll('.alkes');
+
         for(let i=0; i < alkes.length;){
         const alkesPilihan = {
           nama_alat: alkes[i].listTerpilih.value,

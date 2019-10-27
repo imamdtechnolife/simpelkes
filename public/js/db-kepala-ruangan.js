@@ -34,6 +34,8 @@ dbku.enablePersistence()
 
           }
         });
+        let progress = document.querySelector('.progress');
+        progress.remove();
       });      
     }
   });

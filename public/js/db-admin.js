@@ -25,8 +25,8 @@ db.enablePersistence()
             removeRecipe(change.doc.id);
           }
         });
-        let dragon = document.querySelector('.progress');
-        dragon.remove();
+        let progress = document.querySelector('.progress');
+        progress.remove();
       });
 
       db.collection('kategori_alkes').onSnapshot(snapshot => {
