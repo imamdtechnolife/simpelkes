@@ -10,25 +10,73 @@ db.enablePersistence()
     }
   });
 
+  function kasiPenunjangMedik(email, lab, radiologi, gizi){
+    
+
+    if(email == "kasi.penunjang.medik@rsudklu.com"){
+      if(lab){
+        db.collection(lab).onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderPilihanLab(change.doc.data());
+            }
+          });
+        });
+      }
+      if(radiologi){
+        db.collection(radiologi).onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderPilihanRadiologi(change.doc.data());
+            }
+          });
+        });
+      }
+      if(gizi){
+        db.collection(gizi).onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderPilihanGizi(change.doc.data());
+            }
+          });
+        });
+      }
+      
+    }
+    
+  }
+
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
       console.log('login success!')
 
       // real-time listener
-      db.collection('ruangan').onSnapshot(snapshot => {
-        snapshot.docChanges().forEach(change => {
-          if(change.type === 'added'){
-            renderRoom(change.doc.data());
-          }
-        });
-      });
+      // db.collection('ruangan').onSnapshot(snapshot => {
+      //   snapshot.docChanges().forEach(change => {
+      //     if(change.type === 'added'){
+      //       renderRoom(change.doc.data());
+      //     }
+      //   });
+      // });
 
       let email = user.email;
-      if(email == "imamdtechnolife@gmail.com"){
 
-        // .where("number", "==", 3)
+      kasiPenunjangMedik(email, "ruangLABORATORIUM", "ruangRADIOLOGI", "ruangGIZI");
+      if(email == "igd@rsudklu.com"){
+
         db.collection('ruangIGD').onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderPilihan(change.doc.data());
+            }
+          });
+        });
+
+      }
+      if(email == "icu@rsudklu.com"){
+
+        db.collection('ruangICU').onSnapshot(snapshot => {
           snapshot.docChanges().forEach(change => {
             if(change.type === 'added'){
               renderPilihan(change.doc.data());
