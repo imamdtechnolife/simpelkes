@@ -14,9 +14,9 @@ dbku.enablePersistence()
   });
 
   // searching
-  searching.addEventListener('change', e => {
-    console.log(e);
-  })
+  // searching.addEventListener('change', e => {
+  //   console.log(e);
+  // })
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user.email == "admin.simpalkes@rsudklu.com") {
@@ -45,13 +45,12 @@ dbku.enablePersistence()
       
       // let dragon = [];
       // real-time listener
-      dbku.collection('alkes').where("kategori-alat","==","Pelayanan Gawat Darurat").onSnapshot(snapshot => {
+      dbku.collection('alkes').where("kategori_alat","==","Pelayanan Gawat Darurat").orderBy("nama_alat", "asc").onSnapshot(snapshot => {
         snapshot.docChanges().forEach(change => {
           if(change.type === 'added'){
             renderAlkes(change.doc.data(), change.doc.id);
-            // console.log(change.doc.data());
+            console.log(change.doc.data());
             // dragon = change.doc.data()
-            
           }
         });
         let progress = document.querySelector('.progress');
@@ -64,11 +63,11 @@ dbku.enablePersistence()
       console.log('login success!')
       // let dragon = [];
       // real-time listener
-      dbku.collection('alkes').where("kategori-alat","==","Pelayanan Anestesiologi dan Terapi Intensif").onSnapshot(snapshot => {
+      dbku.collection('alkes').where("kategori_alat","==","Pelayanan Anestesiologi dan Terapi Intensif").orderBy("nama_alat", "asc").onSnapshot(snapshot => {
         snapshot.docChanges().forEach(change => {
           if(change.type === 'added'){
             renderAlkes(change.doc.data(), change.doc.id);
-            // console.log(change.doc.data());
+            console.log(change.doc.data());
             // dragon = change.doc.data()
             
           }
@@ -83,11 +82,11 @@ dbku.enablePersistence()
       console.log('login success!')
       // let dragon = [];
       // real-time listener
-      dbku.collection('alkes').where("kategori_alat","==","Pelayanan Kesehatan Anak").onSnapshot(snapshot => {
+      dbku.collection('alkes').where("kategori_alat","==","Pelayanan Kesehatan Anak").orderBy("nama_alat", "asc").onSnapshot(snapshot => {
         snapshot.docChanges().forEach(change => {
           if(change.type === 'added'){
             renderAlkes(change.doc.data(), change.doc.id);
-            // console.log(change.doc.data());
+            console.log(change.doc.data());
             // dragon = change.doc.data()
             
           }
@@ -95,6 +94,102 @@ dbku.enablePersistence()
         let progress = document.querySelector('.progress');
         progress.remove();
       });      
-    }    
-  });
+    }
+    if (user.email == "irna1@rsudklu.com") {
+      // User is signed in.
+      console.log(user.email)
+      console.log('login success!')
+      // let dragon = [];
+      // real-time listener
+      dbku.collection('alkes').where("kategori_alat","==","Pelayanan Gawat Darurat").orderBy("nama_alat", "asc").onSnapshot(snapshot => {
+        snapshot.docChanges().forEach(change => {
+          if(change.type === 'added'){
+            renderAlkes(change.doc.data(), change.doc.id);
+            console.log(change.doc.data());
+            // dragon = change.doc.data()
+            
+          }
+        });
+        let progress = document.querySelector('.progress');
+        progress.remove();
+      });      
+    }
+    if (user.email == "irna2@rsudklu.com") {
+      // User is signed in.
+      console.log(user.email)
+      console.log('login success!')
+      // let dragon = [];
+      // real-time listener
+      dbku.collection('alkes').where("kategori_alat","==","Pelayanan Gawat Darurat").orderBy("nama_alat", "asc").onSnapshot(snapshot => {
+        snapshot.docChanges().forEach(change => {
+          if(change.type === 'added'){
+            renderAlkes(change.doc.data(), change.doc.id);
+            console.log(change.doc.data());
+            // dragon = change.doc.data()
+            
+          }
+        });
+        let progress = document.querySelector('.progress');
+        progress.remove();
+      });      
+    }
+    if (user.email == "ok@rsudklu.com") {
+      // User is signed in.
+      console.log(user.email)
+      console.log('login success!')
+
+        dbku.collection('alkes').where("kategori_alat","==","Pelayanan Bedah").orderBy("nama_alat", "asc")
+        .get().then((querySnapshot) =>{
+            querySnapshot.forEach(doc => {
+            
+                renderAlkes(doc.data(), doc.id);
+                console.log(doc.data());
+                // dragon = change.doc.data()
+      
+            })
+        })
+        
+        let progress = document.querySelector('.progress');
+        progress.remove();
+      }
+      if (user.email == "bersalin@rsudklu.com") {
+        // User is signed in.
+        console.log(user.email)
+        console.log('login success!')
+        // let dragon = [];
+        // real-time listener
+        dbku.collection('alkes').where("kategori_alat","==","Pelayanan Obstetri dan Ginekologi").orderBy("nama_alat", "asc").onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderAlkes(change.doc.data(), change.doc.id);
+              console.log(change.doc.data());
+              // dragon = change.doc.data()
+              
+            }
+          });
+          let progress = document.querySelector('.progress');
+          progress.remove();
+        });      
+      }
+      if (user.email == "nifas@rsudklu.com") {
+        // User is signed in.
+        console.log(user.email)
+        console.log('login success!')
+        // let dragon = [];
+        // real-time listener
+        dbku.collection('alkes').where("kategori_alat","==","Pelayanan Obstetri dan Ginekologi").orderBy("nama_alat", "asc").onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderAlkes(change.doc.data(), change.doc.id);
+              console.log(change.doc.data());
+              // dragon = change.doc.data()
+              
+            }
+          });
+          let progress = document.querySelector('.progress');
+          progress.remove();
+        });      
+      }       
+    })                
+  // });
 

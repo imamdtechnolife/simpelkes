@@ -30,6 +30,14 @@ const renderAlkes = (data, id) => {
   formAlkes.appendChild(p);
 };
 
+function hanyaAngka(evt) {
+  var charCode = (evt.which) ? evt.which : event.keyCode
+  if (charCode > 31 && (charCode < 48 || charCode > 57))
+
+  return false;
+  return true;
+}
+
 function checkedOrNot(e) {
   var isChecked = this.checked;
  
@@ -56,7 +64,7 @@ function checkedOrNot(e) {
           <span>${selection[key].name}</span>
         </label>
         <div class="input-field">
-          <input type="text" class="jumlah" id="jumlah" data-id="${selection[key].name}"/>
+          <input type="text" class="jumlah" id="jumlah" onkeypress="return hanyaAngka(event)" data-id="${selection[key].name}"/>
           <label for="#jumlah-alat">Jumlah</label>
         </div>
       </p>
@@ -67,21 +75,110 @@ function checkedOrNot(e) {
   listAlkesTerpilih.innerHTML = result.join(""); 
 }
 
-  // refresh action
+  // refresh action for delete documents
   btnRefresh.addEventListener('click', e => {
-    db.collection("ruangIGD")
-    .get()
-    .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            doc.ref.delete()
+    firebase.auth().onAuthStateChanged(function(user) {
+      if(user.email == "igd@rsudklu.com"){
+        db.collection("ruangIGD")
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.delete()
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
         });
+      }
+      if(user.email == "icu@rsudklu.com"){
+        db.collection("ruangICU")
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.delete()
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+      }
+      if(user.email == "anak@rsudklu.com"){
+        db.collection("ruangANAK")
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.delete()
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+      }
+      if(user.email == "irna1@rsudklu.com"){
+        db.collection("ruangIRNA1")
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.delete()
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+      }
+      if(user.email == "irna2@rsudklu.com"){
+        db.collection("ruangIRNA2")
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.delete()
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+      }
+      if(user.email == "ok@rsudklu.com"){
+        db.collection("ruangOK")
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.delete()
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+      }
+      if(user.email == "bersalin@rsudklu.com"){
+        db.collection("ruangBERSALIN")
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.delete()
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+      }
+      if(user.email == "nifas@rsudklu.com"){
+        db.collection("ruangNIFAS")
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.delete()
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+      }
     })
-    .catch(function(error) {
-        console.log("Error getting documents: ", error);
-    });
+    
   })
 
-  // submit action
+  // submit action for save data to documents
   btnSubmit.addEventListener('click', e => {
     
     const alkes = document.querySelectorAll('.alkes');
@@ -92,8 +189,42 @@ function checkedOrNot(e) {
           jumlah_alat: alkes[i].jumlah.value
         };
         console.log(alkesPilihan);
-        db.collection('ruangIGD').add(alkesPilihan)
-        .catch(err => console.log(err));
+        firebase.auth().onAuthStateChanged(function(user) {
+          if(user.email == "igd@rsudklu.com"){
+            db.collection('ruangIGD').add(alkesPilihan)
+            .catch(err => console.log(err));
+          }
+          if(user.email == "icu@rsudklu.com"){
+            db.collection('ruangICU').add(alkesPilihan)
+            .catch(err => console.log(err));
+          }
+          if(user.email == "anak@rsudklu.com"){
+            db.collection('ruangANAK').add(alkesPilihan)
+            .catch(err => console.log(err));
+          }
+          if(user.email == "irna1@rsudklu.com"){
+            db.collection('ruangIRNA1').add(alkesPilihan)
+            .catch(err => console.log(err));
+          }
+          if(user.email == "irna2@rsudklu.com"){
+            db.collection('ruangIRNA2').add(alkesPilihan)
+            .catch(err => console.log(err));
+          }
+          if(user.email == "ok@rsudklu.com"){
+            db.collection('ruangOK').add(alkesPilihan)
+            .catch(err => console.log(err));
+          }
+          if(user.email == "bersalin@rsudklu.com"){
+            db.collection('ruangBERSALIN').add(alkesPilihan)
+            .catch(err => console.log(err));
+          }
+          if(user.email == "nifas@rsudklu.com"){
+            db.collection('ruangNIFAS').add(alkesPilihan)
+            .catch(err => console.log(err));
+          }
+        })
+        
+        
         i++;
       }
     M.toast({html: 'Data alkes berhasil tersimpan!'});
