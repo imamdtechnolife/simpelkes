@@ -189,7 +189,64 @@ dbku.enablePersistence()
           let progress = document.querySelector('.progress');
           progress.remove();
         });      
+      }
+      if (user.email == "radiologi@rsudklu.com") {
+        // User is signed in.
+        console.log(user.email)
+        console.log('login success!')
+        // let dragon = [];
+        // real-time listener
+        dbku.collection('alkes').where("kategori_alat","==","Pelayanan Radiologi").orderBy("nama_alat", "asc").onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderAlkes(change.doc.data(), change.doc.id);
+              console.log(change.doc.data());
+              // dragon = change.doc.data()
+              
+            }
+          });
+          let progress = document.querySelector('.progress');
+          progress.remove();
+        });      
+      }
+      if (user.email == "laboratorium@rsudklu.com") {
+        // User is signed in.
+        console.log(user.email)
+        console.log('login success!')
+        // let dragon = [];
+        // real-time listener
+        dbku.collection('alkes').where("kategori_alat","==","Pelayanan Patologi Anotomi").orderBy("nama_alat", "asc").onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderAlkes(change.doc.data(), change.doc.id);
+              console.log(change.doc.data());
+              // dragon = change.doc.data()
+              
+            }
+          });
+          let progress = document.querySelector('.progress');
+          progress.remove();
+        });      
       }       
+      if (user.email == "gizi@rsudklu.com") {
+        // User is signed in.
+        console.log(user.email)
+        console.log('login success!')
+        // let dragon = [];
+        // real-time listener
+        dbku.collection('alkes').where("kategori_alat","==","Instalasi Gizi").orderBy("nama_alat", "asc").onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderAlkes(change.doc.data(), change.doc.id);
+              console.log(change.doc.data());
+              // dragon = change.doc.data()
+              
+            }
+          });
+          let progress = document.querySelector('.progress');
+          progress.remove();
+        });      
+      }                   
     })                
   // });
 

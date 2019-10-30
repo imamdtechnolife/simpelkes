@@ -174,6 +174,42 @@ function checkedOrNot(e) {
             console.log("Error getting documents: ", error);
         });
       }
+      if(user.email == "radiologi@rsudklu.com"){
+        db.collection("ruangRADIOLOGI")
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.delete()
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+      }
+      if(user.email == "laboratorium@rsudklu.com"){
+        db.collection("ruangLABORATORIUM")
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.delete()
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+      }
+      if(user.email == "gizi@rsudklu.com"){
+        db.collection("ruangGIZI")
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.delete()
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+      }
     })
     
   })
@@ -220,6 +256,18 @@ function checkedOrNot(e) {
           }
           if(user.email == "nifas@rsudklu.com"){
             db.collection('ruangNIFAS').add(alkesPilihan)
+            .catch(err => console.log(err));
+          }
+          if(user.email == "radiologi@rsudklu.com"){
+            db.collection('ruangRADIOLOGI').add(alkesPilihan)
+            .catch(err => console.log(err));
+          }
+          if(user.email == "laboratorium@rsudklu.com"){
+            db.collection('ruangLABORATORIUM').add(alkesPilihan)
+            .catch(err => console.log(err));
+          }
+          if(user.email == "gizi@rsudklu.com"){
+            db.collection('ruangGIZI').add(alkesPilihan)
             .catch(err => console.log(err));
           }
         })
