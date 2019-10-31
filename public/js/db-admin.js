@@ -39,6 +39,14 @@ db.enablePersistence()
         });
       });
       
+    }
+    if (user.email == "kasi.penunjang.medik@rsudklu.com"){
+        let menuKaru = document.getElementById("karu");
+        menuKaru.remove()
+    }
+    if (user.email == "igd@rsudklu.com" || user.email == "icu@rsudklu.com"){
+      let menuKaru = document.getElementById("verifikasi");
+      menuKaru.remove()
     } else {
       // No user is signed in.
       

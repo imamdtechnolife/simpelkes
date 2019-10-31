@@ -1,3 +1,7 @@
+const btnSubmitRadiologi = document.getElementById('submitRadiologi')
+const btnSubmitLab = document.getElementById("submitLab")
+const btnSubmitGizi = document.getElementById('submitGizi')
+
 // enable offline data
 db.enablePersistence()
   .catch(function(err) {
@@ -10,9 +14,9 @@ db.enablePersistence()
     }
   });
 
+  // menampilkan list
   function kasiPenunjangMedik(email, lab, radiologi, gizi){
     
-
     if(email == "kasi.penunjang.medik@rsudklu.com"){
       if(lab){
         db.collection(lab).onSnapshot(snapshot => {
@@ -21,6 +25,8 @@ db.enablePersistence()
               renderPilihanLab(change.doc.data());
             }
           });
+          let progress = document.querySelector('.progressLab');
+          progress.remove();
         });
       }
       if(radiologi){
@@ -30,6 +36,8 @@ db.enablePersistence()
               renderPilihanRadiologi(change.doc.data());
             }
           });
+          let progress = document.querySelector('.progressRadiologi');
+          progress.remove();
         });
       }
       if(gizi){
@@ -39,11 +47,21 @@ db.enablePersistence()
               renderPilihanGizi(change.doc.data());
             }
           });
+          let progress = document.querySelector('.progressGizi');
+          progress.remove();
         });
       }
       
     }
     
+  }
+
+  // action button
+  function actionButtonPenunjangMedik(){
+    btnSubmitLab.addEventListener('click', e => {
+      // db.collection('kasiPenunjangmedik/daftarAlkes/ruangLABORATORIUM').add()
+      console.log('hai aku button save laboratorium')
+    })
   }
 
   firebase.auth().onAuthStateChanged(function(user) {
@@ -63,6 +81,7 @@ db.enablePersistence()
       let email = user.email;
 
       kasiPenunjangMedik(email, "ruangLABORATORIUM", "ruangRADIOLOGI", "ruangGIZI");
+      actionButtonPenunjangMedik()
       if(email == "igd@rsudklu.com"){
 
         db.collection('ruangIGD').onSnapshot(snapshot => {

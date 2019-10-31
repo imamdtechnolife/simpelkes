@@ -1,6 +1,7 @@
 const dbku = firebase.firestore();
 const searching = document.getElementById('searching');
 const divAlkes = document.querySelector('.alkes');
+const menuVerifikasi = document.getElementById("verifikasi")
 
 dbku.enablePersistence()
   .catch(function(err) {
@@ -42,6 +43,7 @@ dbku.enablePersistence()
       // User is signed in.
       console.log(user.email)
       console.log('login success!')
+      menuVerifikasi.remove()
       
       // let dragon = [];
       // real-time listener
