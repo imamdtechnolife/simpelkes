@@ -26,7 +26,7 @@
     //render alkes pilihan laboratorium
     const renderPilihanLab = (data) => {
       const pilihan = 
-      `<form class="alkes" value="${data.nama_alat}">
+      `<form class="alkesLab" value="${data.nama_alat}">
       <p class="container" style="margin-bottom: 10px;">
         <label class="container">
           <input type="checkbox" checked="checked" id="listTerpilih" value="${data.nama_alat}"/>
@@ -46,7 +46,7 @@
     // render alkes pilihan radiologi
     const renderPilihanRadiologi = (data) => {
       const pilihan = 
-      `<form class="alkes" value="${data.nama_alat}">
+      `<form class="alkesRadiologi" value="${data.nama_alat}">
       <p class="container" style="margin-bottom: 10px;">
         <label class="container">
           <input type="checkbox" checked="checked" id="listTerpilih" value="${data.nama_alat}"/>
@@ -66,7 +66,7 @@
     // render alkes pilihan gizi
     const renderPilihanGizi = (data) => {
       const pilihan = 
-      `<form class="alkes" value="${data.nama_alat}">
+      `<form class="alkesGizi" value="${data.nama_alat}">
       <p class="container" style="margin-bottom: 10px;">
         <label class="container">
           <input type="checkbox" checked="checked" id="listTerpilih" value="${data.nama_alat}"/>

@@ -16,7 +16,6 @@ db.enablePersistence()
 
   // menampilkan list
   function kasiPenunjangMedik(email, lab, radiologi, gizi){
-    
     if(email == "kasi.penunjang.medik@rsudklu.com"){
       if(lab){
         db.collection(lab).onSnapshot(snapshot => {
@@ -50,10 +49,8 @@ db.enablePersistence()
           let progress = document.querySelector('.progressGizi');
           progress.remove();
         });
-      }
-      
-    }
-    
+      } 
+    } 
   }
 
   // action button
@@ -61,6 +58,22 @@ db.enablePersistence()
     btnSubmitLab.addEventListener('click', e => {
       // db.collection('kasiPenunjangmedik/daftarAlkes/ruangLABORATORIUM').add()
       console.log('hai aku button save laboratorium')
+      let daftarUsulanAlkesLab = document.querySelectorAll('.alkesLab')
+
+      daftarUsulanAlkesLab.forEach(element => {
+
+        if(element.listTerpilih.checked){
+          const usulanAlkesLabdisetujuiKasi = {
+            nama_alat : element.listTerpilih.value,
+            jumlah_alat : element.jumlah.value
+          }
+          console.log(usulanAlkesLabdisetujuiKasi)
+  
+          db.collection("kasiPenunjangMedik/daftarAlkes/ruangLABORATORIUM").add(usulanAlkesLabdisetujuiKasi)
+          .catch(err => console.log(err))
+        }
+      })
+      M.toast({html: 'Data alkes berhasil tersimpan!'});
     })
   }
 
