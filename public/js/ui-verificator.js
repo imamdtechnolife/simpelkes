@@ -1,4 +1,12 @@
-  
+
+ 
+  // firebase.auth().onAuthStateChanged(function(user) {
+  //   if (user) {
+  //     let email = user.email;
+
+      
+  //   }
+  // })
   ruanganKasiPenunjangMedik = ['Laboratorium', 'Radiologi', 'Gizi'];
     
     ruanganKasiPenunjangMedik.forEach(element => {
@@ -8,6 +16,8 @@
      
       console.log('render room success!');
     });
+    
+    
 
     function hanyaAngka(evt) {
       var charCode = (evt.which) ? evt.which : event.keyCode

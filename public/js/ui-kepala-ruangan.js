@@ -28,6 +28,7 @@ const renderAlkes = (data, id) => {
   label.appendChild(input);
   label.appendChild(span);
   formAlkes.appendChild(p);
+  btnSubmit.disabled = true
 };
 
 function hanyaAngka(evt) {
@@ -211,7 +212,8 @@ function checkedOrNot(e) {
         });
       }
     })
-    
+    btnSubmit.disabled = false;
+    btnRefresh.disabled = true
   })
 
   // submit action for save data to documents
@@ -276,6 +278,8 @@ function checkedOrNot(e) {
         i++;
       }
     M.toast({html: 'Data alkes berhasil tersimpan!'});
+    btnSubmit.disabled = true
+    btnRefresh.disabled = false
   })
     
   
