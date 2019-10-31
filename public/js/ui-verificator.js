@@ -1,12 +1,4 @@
 
- 
-  // firebase.auth().onAuthStateChanged(function(user) {
-  //   if (user) {
-  //     let email = user.email;
-
-      
-  //   }
-  // })
   ruanganKasiPenunjangMedik = ['Laboratorium', 'Radiologi', 'Gizi'];
     
     ruanganKasiPenunjangMedik.forEach(element => {
