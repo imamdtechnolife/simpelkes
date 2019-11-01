@@ -16,6 +16,8 @@
   <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-auth.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+  <script src="/js/html2canvas.min.js"></script>
 </head>
 <body class="grey lighten-4">
 
@@ -50,6 +52,7 @@
 
 <!-- list alkes usulan laboratorium -->
 <div id="Laboratorium" class="container">
+  <h6 class="center container" style="font-weight: bold">Laboratorium</h6>
     <div class="progressLab progress">
       <div class="indeterminate"></div>
     </div>
@@ -72,6 +75,7 @@
 
 <!-- list alkes usulan radiologi -->
 <div id="Radiologi" class="container">
+    <h6 class="center container" style="font-weight: bold">Radiologi</h6>
   <div class="progressRadiologi progress">
     <div class="indeterminate"></div>
   </div>
@@ -94,6 +98,7 @@
 
 <!-- list alkes usulan gizi -->
 <div id="Gizi" class="container">
+    <h6 class="center container" style="font-weight: bold">Gizi</h6>
     <div class="progressGizi progress">
         <div class="indeterminate"></div>
       </div>
@@ -113,6 +118,13 @@
     </button>
 </div>
 </div>
+<div class="btn-submit right">
+  <button class="btn add-btn waves-effect waves-light" onClick="window.print()" id="submitGizi">
+      
+    <i class="material-icons" >print</i>
+  </button>
+</div>
+
 
   <!-- side nav -->
   <ul id="side-menu" class="sidenav side-menu">

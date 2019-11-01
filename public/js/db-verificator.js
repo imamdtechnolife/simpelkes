@@ -1,3 +1,4 @@
+var title = document.getElementById('title')
 const btnSubmitRadiologi = document.getElementById('submitRadiologi')
 const btnSubmitLab = document.getElementById("submitLab")
 const btnSubmitGizi = document.getElementById('submitGizi')
@@ -236,6 +237,12 @@ db.enablePersistence()
       let email = user.email;
       if(email == "kabid.penunjang.medik@rsudklu.com"){
         kabidPenunjangMedik(email,"kasiPenunjangMedik/daftarAlkes/ruangLABORATORIUM", "kasiPenunjangMedik/daftarAlkes/ruangRADIOLOGI", "kasiPenunjangMedik/daftarAlkes/ruangGIZI")
+        btnRefreshGizi.style.display = "none";
+        btnRefreshLab.style.display = "none";
+        btnRefreshRadiologi.style.display = "none";
+        btnSubmitGizi.style.display = "none";
+        btnSubmitLab.style.display = "none";
+        btnSubmitRadiologi.style.display = "none";
       }
       if(email == "kasi.penunjang.medik@rsudklu.com"){
         kasiPenunjangMedik(email, "ruangLABORATORIUM", "ruangRADIOLOGI", "ruangGIZI");
