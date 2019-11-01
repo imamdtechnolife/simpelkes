@@ -1,6 +1,6 @@
+const userView = document.getElementById('user');
 
     // render recipe data
-
     const renderRecipe = (data, id) => {
 
       let divPanel = document.createElement('div')

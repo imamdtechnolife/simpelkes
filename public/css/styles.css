@@ -104,3 +104,8 @@ select {
 .btn {
   margin-top: 8px
 }
+
+.tabs .indicator{
+  background-color: #FF8816
+  
+}

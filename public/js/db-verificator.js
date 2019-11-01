@@ -223,6 +223,8 @@ db.enablePersistence()
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
+      const userView = document.getElementById('user')
+      userView.innerHTML = `User : ${user.email}`
       console.log('login success!')
 
       // real-time listener

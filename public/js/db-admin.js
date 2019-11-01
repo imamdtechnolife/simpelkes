@@ -11,6 +11,7 @@ db.enablePersistence()
   });
 
   firebase.auth().onAuthStateChanged(function(user) {
+    userView.innerHTML = `User : ${user.email}`;
     if (user.email == "admin.simpalkes@rsudklu.com") {
       // User is signed in.
       console.log(user.email);

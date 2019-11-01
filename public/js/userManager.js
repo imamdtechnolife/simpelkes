@@ -48,6 +48,7 @@ btnLogout.addEventListener('click', e => {
     .catch(function(error) {
     // Handle Errors here.
     console.log(error.message);
+    window.alert(error.message)
   });
 });
 
