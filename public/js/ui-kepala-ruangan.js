@@ -103,6 +103,18 @@ function checkedOrNot(e) {
             console.log("Error getting documents: ", error);
         });
       }
+      if(user.email == "nicu@rsudklu.com"){
+        db.collection("ruangNICU")
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.delete()
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+      }
       if(user.email == "anak@rsudklu.com"){
         db.collection("ruangANAK")
         .get()
@@ -175,6 +187,18 @@ function checkedOrNot(e) {
             console.log("Error getting documents: ", error);
         });
       }
+      if(user.email == "poli@rsudklu.com"){
+        db.collection("ruangPOLI")
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.delete()
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+      }
       if(user.email == "radiologi@rsudklu.com"){
         db.collection("ruangRADIOLOGI")
         .get()
@@ -236,6 +260,10 @@ function checkedOrNot(e) {
             db.collection('ruangICU').add(alkesPilihan)
             .catch(err => console.log(err));
           }
+          if(user.email == "nicu@rsudklu.com"){
+            db.collection('ruangNICU').add(alkesPilihan)
+            .catch(err => console.log(err));
+          }
           if(user.email == "anak@rsudklu.com"){
             db.collection('ruangANAK').add(alkesPilihan)
             .catch(err => console.log(err));
@@ -258,6 +286,10 @@ function checkedOrNot(e) {
           }
           if(user.email == "nifas@rsudklu.com"){
             db.collection('ruangNIFAS').add(alkesPilihan)
+            .catch(err => console.log(err));
+          }
+          if(user.email == "poli@rsudklu.com"){
+            db.collection('ruangPOLI').add(alkesPilihan)
             .catch(err => console.log(err));
           }
           if(user.email == "radiologi@rsudklu.com"){
