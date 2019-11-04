@@ -1,6 +1,7 @@
 const formAlkes = document.querySelector('.listBajakLaut');
 var selection = {};
 const listAlkesTerpilih = document.querySelector('.listAlkes');
+const listAlkesTerikirim = document.querySelector('.listAlkesTerkirim')
 const btnSubmit = document.querySelector('#submit');
 const btnRefresh = document.querySelector('#refresh');
 
@@ -30,6 +31,28 @@ const renderAlkes = (data, id) => {
   formAlkes.appendChild(p);
   btnSubmit.disabled = true
 };
+
+// daftar alkes terikirim/tersimpan
+const renderAlkesTerkirim = (data, id) => {
+  console.log("run")
+  let p = document.createElement('p');
+  let label = document.createElement('label');
+  let input = document.createElement('input');
+  input.setAttribute('type', 'checkbox');
+  input.setAttribute('checked', 'checked');
+  input.setAttribute('disabled', 'disabled')
+  input.setAttribute('id', `${id}`);
+  input.setAttribute('value',`${data.nama_alat}`);
+  
+  let span = document.createElement('span');
+  span.innerHTML = `${data.nama_alat} (${data.jumlah_alat})`;
+
+  p.appendChild(label);
+  label.appendChild(input);
+  label.appendChild(span);
+  listAlkesTerikirim.appendChild(p);
+  btnSubmit.disabled = true
+}
 
 function hanyaAngka(evt) {
   var charCode = (evt.which) ? evt.which : event.keyCode
@@ -65,7 +88,7 @@ function checkedOrNot(e) {
           <span>${selection[key].name}</span>
         </label>
         <div class="input-field">
-          <input type="text" class="jumlah" id="jumlah" onkeypress="return hanyaAngka(event)" data-id="${selection[key].name}"/>
+          <input type="text" class="jumlah" id="jumlah" onkeypress="return hanyaAngka(event)" data-id="${selection[key].name}" required/>
           <label for="#jumlah-alat">Jumlah</label>
         </div>
       </p>

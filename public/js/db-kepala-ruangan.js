@@ -57,7 +57,17 @@ dbku.enablePersistence()
         });
         let progress = document.querySelector('.progress');
         progress.remove();
-      });      
+      });  
+      dbku.collection('ruangIGD').onSnapshot(snapshot => {
+        snapshot.docChanges().forEach(change => {
+          if(change.type === 'added'){
+            renderAlkesTerkirim(change.doc.data(), change.doc.id);
+            console.log(change.doc.data());
+          }
+        });
+        let progress = document.querySelector('.progress');
+        progress.remove();
+      });    
     }
     if (user.email == "icu@rsudklu.com") {
       // User is signed in.
@@ -76,7 +86,17 @@ dbku.enablePersistence()
         });
         let progress = document.querySelector('.progress');
         progress.remove();
-      });      
+      }); 
+      dbku.collection('ruangICU').onSnapshot(snapshot => {
+        snapshot.docChanges().forEach(change => {
+          if(change.type === 'added'){
+            renderAlkesTerkirim(change.doc.data(), change.doc.id);
+            console.log(change.doc.data());
+          }
+        });
+        let progress = document.querySelector('.progress');
+        progress.remove();
+      });        
     }
     if (user.email == "nicu@rsudklu.com") {
       // User is signed in.
@@ -95,7 +115,17 @@ dbku.enablePersistence()
         });
         let progress = document.querySelector('.progress');
         progress.remove();
-      });      
+      }); 
+      dbku.collection('ruangNICU').onSnapshot(snapshot => {
+        snapshot.docChanges().forEach(change => {
+          if(change.type === 'added'){
+            renderAlkesTerkirim(change.doc.data(), change.doc.id);
+            console.log(change.doc.data());
+          }
+        });
+        let progress = document.querySelector('.progress');
+        progress.remove();
+      });        
     }
     if (user.email == "anak@rsudklu.com") {
       // User is signed in.
@@ -110,6 +140,16 @@ dbku.enablePersistence()
             console.log(change.doc.data());
             // dragon = change.doc.data()
             
+          }
+        });
+        let progress = document.querySelector('.progress');
+        progress.remove();
+      });   
+      dbku.collection('ruangANAK').onSnapshot(snapshot => {
+        snapshot.docChanges().forEach(change => {
+          if(change.type === 'added'){
+            renderAlkesTerkirim(change.doc.data(), change.doc.id);
+            console.log(change.doc.data());
           }
         });
         let progress = document.querySelector('.progress');
@@ -133,6 +173,16 @@ dbku.enablePersistence()
         });
         let progress = document.querySelector('.progress');
         progress.remove();
+      });   
+      dbku.collection('ruangIRNA1').onSnapshot(snapshot => {
+        snapshot.docChanges().forEach(change => {
+          if(change.type === 'added'){
+            renderAlkesTerkirim(change.doc.data(), change.doc.id);
+            console.log(change.doc.data());
+          }
+        });
+        let progress = document.querySelector('.progress');
+        progress.remove();
       });      
     }
     if (user.email == "irna2@rsudklu.com") {
@@ -152,7 +202,17 @@ dbku.enablePersistence()
         });
         let progress = document.querySelector('.progress');
         progress.remove();
-      });      
+      });    
+      dbku.collection('ruangIRNA2').onSnapshot(snapshot => {
+        snapshot.docChanges().forEach(change => {
+          if(change.type === 'added'){
+            renderAlkesTerkirim(change.doc.data(), change.doc.id);
+            console.log(change.doc.data());
+          }
+        });
+        let progress = document.querySelector('.progress');
+        progress.remove();
+      });     
     }
     if (user.email == "ok@rsudklu.com") {
       // User is signed in.
@@ -169,6 +229,16 @@ dbku.enablePersistence()
       
             })
         })
+        dbku.collection('ruangOK').onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderAlkesTerkirim(change.doc.data(), change.doc.id);
+              console.log(change.doc.data());
+            }
+          });
+          let progress = document.querySelector('.progress');
+          progress.remove();
+        });   
         
         let progress = document.querySelector('.progress');
         progress.remove();
@@ -190,7 +260,17 @@ dbku.enablePersistence()
           });
           let progress = document.querySelector('.progress');
           progress.remove();
-        });      
+        });    
+        dbku.collection('ruangBERSALIN').onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderAlkesTerkirim(change.doc.data(), change.doc.id);
+              console.log(change.doc.data());
+            }
+          });
+          let progress = document.querySelector('.progress');
+          progress.remove();
+        });     
       }
       if (user.email == "nifas@rsudklu.com") {
         // User is signed in.
@@ -210,6 +290,16 @@ dbku.enablePersistence()
           let progress = document.querySelector('.progress');
           progress.remove();
         });      
+        dbku.collection('ruangNIFAS').onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderAlkesTerkirim(change.doc.data(), change.doc.id);
+              console.log(change.doc.data());
+            }
+          });
+          let progress = document.querySelector('.progress');
+          progress.remove();
+        });   
       }
       if (user.email == "poli@rsudklu.com") {
         // User is signed in.
@@ -224,6 +314,16 @@ dbku.enablePersistence()
               console.log(change.doc.data());
               // dragon = change.doc.data()
               
+            }
+          });
+          let progress = document.querySelector('.progress');
+          progress.remove();
+        });   
+        dbku.collection('ruangPOLI').onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderAlkesTerkirim(change.doc.data(), change.doc.id);
+              console.log(change.doc.data());
             }
           });
           let progress = document.querySelector('.progress');
@@ -248,6 +348,16 @@ dbku.enablePersistence()
           let progress = document.querySelector('.progress');
           progress.remove();
         });      
+        dbku.collection('ruangRADIOLOGI').onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderAlkesTerkirim(change.doc.data(), change.doc.id);
+              console.log(change.doc.data());
+            }
+          });
+          let progress = document.querySelector('.progress');
+          progress.remove();
+        });   
       }
       if (user.email == "laboratorium@rsudklu.com") {
         // User is signed in.
@@ -266,7 +376,17 @@ dbku.enablePersistence()
           });
           let progress = document.querySelector('.progress');
           progress.remove();
-        });      
+        });     
+        dbku.collection('ruangLABORATORIUM').onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderAlkesTerkirim(change.doc.data(), change.doc.id);
+              console.log(change.doc.data());
+            }
+          });
+          let progress = document.querySelector('.progress');
+          progress.remove();
+        });    
       }       
       if (user.email == "gizi@rsudklu.com") {
         // User is signed in.
@@ -285,8 +405,18 @@ dbku.enablePersistence()
           });
           let progress = document.querySelector('.progress');
           progress.remove();
-        });      
+        });     
+        dbku.collection('ruangGIZI').onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderAlkesTerkirim(change.doc.data(), change.doc.id);
+              console.log(change.doc.data());
+            }
+          });
+          let progress = document.querySelector('.progress');
+          progress.remove();
+        });    
       }                   
     })                
-  // });
+
 
