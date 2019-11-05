@@ -640,68 +640,6 @@ const btnRefreshPoli = document.getElementById('refreshPoli')
         btnRefreshGizi.disabled = false
       })
     }
-    // if(email == "kabid.penunjang.medik@rsudklu.com"){
-    //   btnSubmitLab.addEventListener('click', e => {
-        
-    //     let daftarUsulanAlkesLab = document.querySelectorAll('.alkesLab')
-
-    //     daftarUsulanAlkesLab.forEach(element => {
-    //       if(element.listTerpilih.checked){
-    //         const usulanAlkesLabdisetujuiKasi = {
-    //           nama_alat : element.listTerpilih.value,
-    //           jumlah_alat : element.jumlah.value
-    //         }
-    //         console.log(usulanAlkesLabdisetujuiKasi)
-    
-    //         db.collection("kabidPenunjangMedik/daftarAlkes/ruangLABORATORIUM").add(usulanAlkesLabdisetujuiKasi)
-    //         .catch(err => console.log(err))
-    //       }
-    //     })
-    //     M.toast({html: 'Data alkes berhasil tersimpan!'});
-    //     btnSubmitLab.disabled = true
-    //     btnRefreshLab.disabled = false
-    //   })
-    //   btnSubmitRadiologi.addEventListener('click', e => {
-        
-    //     let daftarUsulanAlkesRadiologi = document.querySelectorAll('.alkesRadiologi')
-
-    //     daftarUsulanAlkesRadiologi.forEach(element => {
-    //       if(element.listTerpilih.checked){
-    //         const usulanAlkesRadiologidisetujuiKasi = {
-    //           nama_alat : element.listTerpilih.value,
-    //           jumlah_alat : element.jumlah.value
-    //         }
-    //         console.log(usulanAlkesRadiologidisetujuiKasi)
-    
-    //         db.collection("kabidPenunjangMedik/daftarAlkes/ruangRADIOLOGI").add(usulanAlkesRadiologidisetujuiKasi)
-    //         .catch(err => console.log(err))
-    //       }
-    //     })
-    //     M.toast({html: 'Data alkes berhasil tersimpan!'});
-    //     btnSubmitRadiologi.disabled = true
-    //     btnRefreshRadiologi.disabled = false
-    //   })
-    //   btnSubmitGizi.addEventListener('click', e => {
-        
-    //     let daftarUsulanAlkesGizi = document.querySelectorAll('.alkesGizi')
-
-    //     daftarUsulanAlkesGizi.forEach(element => {
-    //       if(element.listTerpilih.checked){
-    //         const usulanAlkesGizidisetujuiKasi = {
-    //           nama_alat : element.listTerpilih.value,
-    //           jumlah_alat : element.jumlah.value
-    //         }
-    //         console.log(usulanAlkesGizidisetujuiKasi)
-    
-    //         db.collection("kabidPenunjangMedik/daftarAlkes/ruangGIZI").add(usulanAlkesGizidisetujuiKasi)
-    //         .catch(err => console.log(err))
-    //       }
-    //     })
-    //     M.toast({html: 'Data alkes berhasil tersimpan!'});
-    //     btnSubmitGizi.disabled = true
-    //     btnRefreshGizi.disabled = false
-    //   })
-    // }
   }
 
   // action refresh button for kabid pelayanan
