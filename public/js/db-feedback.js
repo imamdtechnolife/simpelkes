@@ -14,11 +14,12 @@ var title = document.getElementById('title')
 
 
   // list usulan alkes fix
-  function kabidPenunjangMedik(email, lab, radiologi, gizi, igd, icu, nicu, irna1, irna2, ok, anak, bersalin, nifas, poli){
+  function kabidPenunjangMedik(email, lab, radiologi, gizi, utdrs, igd, icu, nicu, irna1, irna2, ok, anak, bersalin, nifas, poli){
     if(email == "kabid.penunjang.medik@rsudklu.com" ||
     "laboratorium@rsudklu.com" ||
     "radiologi@rsudklu.com" || 
     "gizi@rsudklu.com" ||
+    "utdrs@rsudklu.com" ||
     "igd@rsudklu.com" ||
     "icu@rsudklu.com" ||
     "nicu@rsudklu.com" ||
@@ -56,6 +57,17 @@ var title = document.getElementById('title')
           snapshot.docChanges().forEach(change => {
             if(change.type === 'added'){
               renderPilihanGizi(change.doc.data());
+            }
+          });
+          let progress = document.querySelector('.progress');
+          progress.remove();
+        });
+      }
+      if(utdrs){
+        db.collection(utdrs).onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderPilihanUtdrs(change.doc.data());
             }
           });
           let progress = document.querySelector('.progress');
@@ -191,6 +203,7 @@ var title = document.getElementById('title')
       "laboratorium@rsudklu.com" ||
       "radiologi@rsudklu.com" || 
       "gizi@rsudklu.com" ||
+      "utdrs@rsudklu.com" ||
       "igd@rsudklu.com" ||
       "icu@rsudklu.com" ||
       "nicu@rsudklu.com" ||
@@ -205,6 +218,7 @@ var title = document.getElementById('title')
         "kabidPenunjangMedik/daftarAlkes/ruangLABORATORIUM", 
         "kabidPenunjangMedik/daftarAlkes/ruangRADIOLOGI", 
         "kabidPenunjangMedik/daftarAlkes/ruangGIZI",
+        "kabidPenunjangMedik/daftarAlkes/ruangUTDRS",
         "kabidPenunjangMedik/daftarAlkes/ruangIGD",
         "kabidPenunjangMedik/daftarAlkes/ruangICU",
         "kabidPenunjangMedik/daftarAlkes/ruangNICU",

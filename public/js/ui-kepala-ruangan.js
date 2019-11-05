@@ -258,6 +258,18 @@ function checkedOrNot(e) {
             console.log("Error getting documents: ", error);
         });
       }
+      if(user.email == "utdrs@rsudklu.com"){
+        db.collection("ruangUTDRS")
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.delete()
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+      }
     })
     btnSubmit.disabled = false;
     btnRefresh.disabled = true
@@ -325,6 +337,10 @@ function checkedOrNot(e) {
           }
           if(user.email == "gizi@rsudklu.com"){
             db.collection('ruangGIZI').add(alkesPilihan)
+            .catch(err => console.log(err));
+          }
+          if(user.email == "utdrs@rsudklu.com"){
+            db.collection('ruangUTDRS').add(alkesPilihan)
             .catch(err => console.log(err));
           }
         })

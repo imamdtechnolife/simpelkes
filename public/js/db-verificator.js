@@ -2,6 +2,7 @@ var title = document.getElementById('title')
 const btnSubmitRadiologi = document.getElementById('submitRadiologi')
 const btnSubmitLab = document.getElementById("submitLab")
 const btnSubmitGizi = document.getElementById('submitGizi')
+const btnSubmitUtdrs = document.getElementById('submitUtdrs')
 const btnSubmitIgd = document.getElementById('submitIgd')
 const btnSubmitIcu = document.getElementById('submitIcu')
 const btnSubmitNicu = document.getElementById('submitNicu')
@@ -16,6 +17,7 @@ const btnSubmitPoli = document.getElementById('submitPoli')
 const btnRefreshRadiologi = document.getElementById('refreshRadiologi')
 const btnRefreshLab = document.getElementById('refreshLab')
 const btnRefreshGizi = document.getElementById('refreshGizi')
+const btnRefreshUtdrs = document.getElementById('refreshUtdrs')
 const btnRefreshIgd = document.getElementById('refreshIgd')
 const btnRefreshIcu = document.getElementById('refreshIcu')
 const btnRefreshNicu = document.getElementById('refreshNicu')
@@ -41,7 +43,7 @@ const btnRefreshPoli = document.getElementById('refreshPoli')
 
 
   // list usulan alkes fix
-  function kabidPenunjangMedik(email, lab, radiologi, gizi, igd, icu, nicu, irna1, irna2, ok, anak, bersalin, nifas, poli){
+  function kabidPenunjangMedik(email, lab, radiologi, gizi, utdrs, igd, icu, nicu, irna1, irna2, ok, anak, bersalin, nifas, poli){
     if(email == "kabid.penunjang.medik@rsudklu.com"){
       if(lab){
         db.collection(lab).onSnapshot(snapshot => {
@@ -70,6 +72,17 @@ const btnRefreshPoli = document.getElementById('refreshPoli')
           snapshot.docChanges().forEach(change => {
             if(change.type === 'added'){
               renderPilihanGizi(change.doc.data());
+            }
+          });
+          let progress = document.querySelector('.progress');
+          progress.remove();
+        });
+      }
+      if(utdrs){
+        db.collection(utdrs).onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderPilihanUtdrs(change.doc.data());
             }
           });
           let progress = document.querySelector('.progress');
@@ -443,7 +456,7 @@ const btnRefreshPoli = document.getElementById('refreshPoli')
     }
   }
   // list usulan alkes for penunjang medik
-  function kasiPenunjangMedik(email, lab, radiologi, gizi){
+  function kasiPenunjangMedik(email, lab, radiologi, gizi, utdrs){
     if(email == "kasi.penunjang.medik@rsudklu.com"){
       if(lab){
         db.collection(lab).onSnapshot(snapshot => {
@@ -477,6 +490,18 @@ const btnRefreshPoli = document.getElementById('refreshPoli')
             }
           });
           let progress = document.querySelector('.progressGizi');
+          progress.remove();
+        });
+        btnSubmitGizi.disabled = true
+      } 
+      if(utdrs){
+        db.collection(utdrs).onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderPilihanUtdrs(change.doc.data());
+            }
+          });
+          let progress = document.querySelector('.progressUtdrs');
           progress.remove();
         });
         btnSubmitGizi.disabled = true
@@ -529,51 +554,22 @@ const btnRefreshPoli = document.getElementById('refreshPoli')
         btnSubmitGizi.disabled = false
         btnRefreshGizi.disabled = true    
       })
+      btnRefreshUtdrs.addEventListener('click', e => {
+        db.collection(collection+"/daftarAlkes/ruangUTDRS")
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                doc.ref.delete()
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+        btnSubmitUtdrs.disabled = false
+        btnRefreshUtdrs.disabled = true    
+      })
     }
-    // if(email == "kabid.penunjang.medik@rsudklu.com"){
-    //   btnRefreshLab.addEventListener('click', e => {
-    //         db.collection(collection+"/daftarAlkes/ruangLABORATORIUM")
-    //         .get()
-    //         .then(function(querySnapshot) {
-    //             querySnapshot.forEach(function(doc) {
-    //                 doc.ref.delete()
-    //             });
-    //         })
-    //         .catch(function(error) {
-    //             console.log("Error getting documents: ", error);
-    //         });
-    //     btnSubmitLab.disabled = false
-    //     btnRefreshLab.disabled = true    
-    //   })
-    //   btnRefreshRadiologi.addEventListener('click', e => {
-    //         db.collection(collection+"/daftarAlkes/ruangRADIOLOGI")
-    //         .get()
-    //         .then(function(querySnapshot) {
-    //             querySnapshot.forEach(function(doc) {
-    //                 doc.ref.delete()
-    //             });
-    //         })
-    //         .catch(function(error) {
-    //             console.log("Error getting documents: ", error);
-    //         });
-    //     btnSubmitRadiologi.disabled = false
-    //     btnRefreshRadiologi.disabled = true    
-    //   })
-    //   btnRefreshGizi.addEventListener('click', e => {
-    //         db.collection(collection+"/daftarAlkes/ruangGIZI")
-    //         .get()
-    //         .then(function(querySnapshot) {
-    //             querySnapshot.forEach(function(doc) {
-    //                 doc.ref.delete()
-    //             });
-    //         })
-    //         .catch(function(error) {
-    //             console.log("Error getting documents: ", error);
-    //         });
-    //     btnSubmitGizi.disabled = false
-    //     btnRefreshGizi.disabled = true    
-    //   })
-    // }
+    
   }
 
   // action submit button for kasi penunjang
@@ -632,6 +628,26 @@ const btnRefreshPoli = document.getElementById('refreshPoli')
             console.log(usulanAlkesGizidisetujuiKasi)
     
             db.collection(collection+"/daftarAlkes/ruangGIZI").add(usulanAlkesGizidisetujuiKasi)
+            .catch(err => console.log(err))
+          }
+        })
+        M.toast({html: 'Data alkes berhasil tersimpan!'});
+        btnSubmitGizi.disabled = true
+        btnRefreshGizi.disabled = false
+      })
+      btnSubmitUtdrs.addEventListener('click', e => {
+        
+        let daftarUsulanAlkesUtdrs = document.querySelectorAll('.alkesUtdrs')
+
+        daftarUsulanAlkesUtdrs.forEach(element => {
+          if(element.listTerpilih.checked){
+            const usulanAlkesUtdrsdisetujuiKasi = {
+              nama_alat : element.listTerpilih.value,
+              jumlah_alat : element.jumlah.value
+            }
+            console.log(usulanAlkesUtdrsdisetujuiKasi)
+    
+            db.collection(collection+"/daftarAlkes/ruangUTDRS").add(usulanAlkesUtdrsdisetujuiKasi)
             .catch(err => console.log(err))
           }
         })
@@ -1444,6 +1460,7 @@ const btnRefreshPoli = document.getElementById('refreshPoli')
         "kasiPenunjangMedik/daftarAlkes/ruangLABORATORIUM", 
         "kasiPenunjangMedik/daftarAlkes/ruangRADIOLOGI", 
         "kasiPenunjangMedik/daftarAlkes/ruangGIZI",
+        "kasiPenunjangMedik/daftarAlkes/ruangUTDRS",
         "KabidPelayananMedik/daftarAlkes/ruangIGD",
         "KabidPelayananMedik/daftarAlkes/ruangICU",
         "KabidPelayananMedik/daftarAlkes/ruangNICU",
@@ -1460,7 +1477,7 @@ const btnRefreshPoli = document.getElementById('refreshPoli')
         actionButtonKabidPelayanan("kabidPenunjangMedik")
       }
       if(email == "kasi.penunjang.medik@rsudklu.com"){
-        kasiPenunjangMedik(email, "ruangLABORATORIUM", "ruangRADIOLOGI", "ruangGIZI");
+        kasiPenunjangMedik(email, "ruangLABORATORIUM", "ruangRADIOLOGI", "ruangGIZI", "ruangUTDRS");
         actionRefreshButtonPenunjangMedik(email, "kasiPenunjangMedik")
         actionButtonPenunjangMedik(email, "kasiPenunjangMedik")
       }

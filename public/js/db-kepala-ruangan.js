@@ -416,7 +416,36 @@ dbku.enablePersistence()
           let progress = document.querySelector('.progress');
           progress.remove();
         });    
-      }                   
+      } 
+      if (user.email == "utdrs@rsudklu.com") {
+        // User is signed in.
+        console.log(user.email)
+        console.log('login success!')
+        // let dragon = [];
+        // real-time listener
+        dbku.collection('alkes').where("kategori_alat","==","Pelayanan UTDRS").orderBy("nama_alat", "asc").onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderAlkes(change.doc.data(), change.doc.id);
+              console.log(change.doc.data());
+              // dragon = change.doc.data()
+              
+            }
+          });
+          let progress = document.querySelector('.progress');
+          progress.remove();
+        });     
+        dbku.collection('ruangUTDRS').onSnapshot(snapshot => {
+          snapshot.docChanges().forEach(change => {
+            if(change.type === 'added'){
+              renderAlkesTerkirim(change.doc.data(), change.doc.id);
+              console.log(change.doc.data());
+            }
+          });
+          let progress = document.querySelector('.progress');
+          progress.remove();
+        });    
+      }                       
     })                
 
 

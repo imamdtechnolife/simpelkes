@@ -1,5 +1,5 @@
 
-  ruangan = ['Laboratorium', 'Radiologi', 'Gizi', 'IGD', 'ICU', 'NICU', 'IRNA1', 'IRNA2', 'OK',
+  ruangan = ['Laboratorium', 'Radiologi', 'Gizi', 'UTDRS', 'IGD', 'ICU', 'NICU', 'IRNA1', 'IRNA2', 'OK',
   'ANAK', 'BERSALIN', 'NIFAS', 'POLI'];
    
    ruangan.forEach(element => {
@@ -33,6 +33,7 @@
    const lab = document.querySelector('.listLAB');
    const radiologi = document.querySelector('.listRADIOLOGI');
    const gizi = document.querySelector('.listGIZI');
+   const utdrs = document.querySelector('.listUTDRS');
 
    //render alkes pilihan laboratorium
    const renderPilihanLab = (data) => {
@@ -93,6 +94,26 @@
      gizi.innerHTML += pilihan;
      console.log('render alkes pilihan gizi success!')
    }
+
+   // render alkes pilihan gizi
+   const renderPilihanUtdrs = (data) => {
+    const pilihan = 
+    `<form class="alkesUtdrs" value="${data.nama_alat}">
+    <p class="container" style="margin-bottom: 10px;">
+      <label class="container">
+        <input type="checkbox" checked="checked" id="listTerpilih" value="${data.nama_alat}" disabled/>
+        <span>${data.nama_alat}</span>
+      </label>
+      <div class="input-field">
+        <input type="text" class="jumlah" id="jumlah" onkeypress="return hanyaAngka(event)" data-id="${data.jumlah_alat}" disabled/>
+        <label for="#jumlah-alat">${data.jumlah_alat}</label>
+      </div>
+    </p>
+  </form>`
+
+    utdrs.innerHTML += pilihan;
+    console.log('render alkes pilihan utdrs success!')
+  }
 
    // render alkes pilihan igd
    const renderPilihanIgd = (data) => {
