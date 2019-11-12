@@ -145,7 +145,7 @@ const btnRefreshPoli = document.getElementById('refreshPoli')
         });
       }
       if(ok){
-        db.collection(gizi).onSnapshot(snapshot => {
+        db.collection(ok).onSnapshot(snapshot => {
           snapshot.docChanges().forEach(change => {
             if(change.type === 'added'){
               renderPilihanOk(change.doc.data());
@@ -1455,6 +1455,7 @@ const btnRefreshPoli = document.getElementById('refreshPoli')
       console.log('login success!')
 
       let email = user.email;
+      let printButton = document.getElementById('print')
       if(email == "kabid.penunjang.medik@rsudklu.com"){
         kabidPenunjangMedik(email,
         "kasiPenunjangMedik/daftarAlkes/ruangLABORATORIUM", 
@@ -1480,16 +1481,19 @@ const btnRefreshPoli = document.getElementById('refreshPoli')
         kasiPenunjangMedik(email, "ruangLABORATORIUM", "ruangRADIOLOGI", "ruangGIZI", "ruangUTDRS");
         actionRefreshButtonPenunjangMedik(email, "kasiPenunjangMedik")
         actionButtonPenunjangMedik(email, "kasiPenunjangMedik")
+        printButton.style.display = "none"
       }
       if(email == "kasi.keperawatan@rsudklu.com"){
         kasiKeperawatan(email, "ruangIGD", "ruangICU", "ruangNICU", "ruangIRNA1", "ruangIRNA2", "ruangOK", "ruangANAK", "ruangBERSALIN", "ruangNIFAS", "ruangPOLI") 
         actionRefreshButtonKeperawatan(email)
         actionButtonKeperawatan()
+        printButton.style.display = "none"
       }
       if(email == "kabid.pelayanan@rsudklu.com"){
         kabidPelayanan(email, "ruangIGD", "ruangICU", "ruangNICU", "ruangIRNA1", "ruangIRNA2", "ruangOK", "ruangANAK", "ruangBERSALIN", "ruangNIFAS", "ruangPOLI")
         actionRefreshButtonKabidPelayanan("KabidPelayananMedik")
         actionButtonKabidPelayanan("KabidPelayananMedik")
+        printButton.style.display = "none"
       }
       
     } else {

@@ -27,7 +27,7 @@ const userView = document.getElementById('user');
       divDeleteButton.setAttribute('class', "recipe-delete");
       let iButton = document.createElement('i');
       iButton.setAttribute('class', "material-icons");
-      iButton.setAttribute('data-id', `"${id}"`);
+      iButton.setAttribute('data-id', `${id}`);
       iButton.innerHTML = "delete_outline";
       divPanel.appendChild(imgTools);
       divPanel.appendChild(divRecipeDetail);
@@ -38,6 +38,13 @@ const userView = document.getElementById('user');
       divDeleteButton.appendChild(iButton);
       recipes.appendChild(divPanel);
       console.log("render success!");
+
+      iButton.addEventListener('click', e => {
+        e.stopPropagation()
+        let id = e.target.getAttribute('data-id')
+        db.collection('alkes').doc(id).delete()
+        M.toast({html: 'Data alkes berhasil terhapus!'});
+      })
           
     };
   

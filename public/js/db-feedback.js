@@ -131,7 +131,7 @@ var title = document.getElementById('title')
         });
       }
       if(ok){
-        db.collection(gizi).onSnapshot(snapshot => {
+        db.collection(ok).onSnapshot(snapshot => {
           snapshot.docChanges().forEach(change => {
             if(change.type === 'added'){
               renderPilihanOk(change.doc.data());
